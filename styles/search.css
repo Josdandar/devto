@@ -1,9 +1,15 @@
 #navbar {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   height: 56px;
-  color: black;
+  color: rgb(245, 245, 245);
 }
 
 body {
   background-color: rgb(245, 245, 245);
+}
+
+#card_resume {
+  border-color: rgb(229, 229, 229);
+  border-style: solid;
+  border-width: 1px;
 }/*# sourceMappingURL=search.css.map */

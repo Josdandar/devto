@@ -17,26 +17,68 @@
     </nav>
     <main>
         <div class="container">
-            <div class="row">
-                <div class="column">
-                    <h1>Search results for </h1>
-
+            <div class="row d-flex py-2">
+                <div class="col-12  d-md-none col-md-6">
+                    <input type="text">>
                 </div>
+                <div class="col-12 title d-none d-md-flex col-md-6">
+                    <h1><b>Search results for </b></h1>
+                </div>
+                <div class="col-12 btn-group col-md-6">
+                    <a href="#" class="btn active rounded-3 align-middle" aria-current="page">Most Relevant</a>
+                    <a href="#" class="btn rounded-3 align-middle">Newest</a>
+                    <a href="#" class="btn rounded-3 justify-content-center">Oldest</a>
+                </div>        
             </div>
             <div class="row">
-                <div class="column">
-                    <div class="btn-group-vertical">
-                        <a href="#" class="btn btn-primary active" aria-current="page">Posts</a>
-                        <a href="#" class="btn btn-primary">Podcasts</a>
-                        <a href="#" class="btn btn-primary">People</a>
-                        <a href="#" class="btn btn-primary">Tags</a>
-                        <a href="#" class="btn btn-primary">Comments</a>
-                        <a href="#" class="btn btn-primary">My posts only</a>
+                <div class="col-12 col-md-2 ">
+                    <div class="btn d-flex flex-md-column ">
+                        <a href="#" class="btn  active" aria-current="page">Posts</a>
+                        <a href="#" class="btn">Podcasts</a>
+                        <a href="#" class="btn">People</a>
+                        <a href="#" class="btn">Tags</a>
+                        <a href="#" class="btn">Comments</a>
+                        <a href="#" class="btn">My posts only</a>
+                      </div>
+
+                </div>
+                <div class="col-12 col-md-10 ">
+                    <div class="card p-3 m-2" id="card_resume">
+                        <div class="d-flex" style="height: 3rem;">
+                            <div>
+                                <img src="https://picsum.photos/35/35?random=1" class="rounded-circle me-1" alt="Userpic">
+                            </div>
+                            <div class="ps-2">
+                                <span>Usuario</span><br>
+                                <span>Fecha</span>
+                            </div>
+
+                        </div>
+                        <div class="card-body ps-5">
+                          <h5 class="card-title">Card title</h5>
+                          <a href="#" class="card-link">Card link</a>
+                          <a href="#" class="card-link">Another link</a>
+                        </div>
+                        <div class="d-flex justify-content-between ps-5" style="height: 3rem;">
+                            <div class="text-center align-middle pt-2">
+                                <button>1 reaction</button>
+                                <button>5 comments</button>
+                                
+                            </div>
+                            <div class=" text-center align-middle pt-2">
+                                <span>1 min read</span>
+                                <button>Save</button>
+                            </div>
+
+                        </div>
                       </div>
 
                 </div>
             </div>
         </div>
+            
+        
+        
     </main>
 
     <footer>
