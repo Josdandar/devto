@@ -1,9 +1,25 @@
 let url ='https://devto-photoapp-default-rtdb.firebaseio.com/posts.json';
-
+let strToFilter= "Kay"
+let strLower = strToFilter.toLowerCase()
 let postsMainCards = document.querySelector('#card_holder');
-const insertPost = (posts) => {
+const insertFilteredPost = (posts) => {
     let template = '';
     for (post in posts){
+        if(posts[post].postTitle.toLocaleLowerCase().match(strLower) ||
+        posts[post].postAuthor.toLocaleLowerCase().match(strLower)||
+        posts[post].postTags.toLocaleLowerCase().match(strLower)) {
+            let tagsArray = posts[post].postTags.split(" ");
+            console.log(tagsArray)
+            let tagstemplate=``;
+            tagsArray.forEach(cv => {
+                console.log(cv)
+                tagstemplate+=`<a href="#" class="card-link">${cv}</a>`
+                
+            });
+           
+                
+
+        
         template += `<div class="card p-3 m-2" id="card_resume">
         <div class="d-flex" style="height: 3rem;">
             <div>
@@ -17,8 +33,7 @@ const insertPost = (posts) => {
         </div>
         <div class="card-body ps-5">
           <h5 class="card-title">${posts[post].postTitle}</h5>
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
+          ${tagstemplate}
         </div>
         <div class="d-flex justify-content-between ps-5" style="height: 3rem;">
             <div class="text-center align-middle pt-2">
@@ -34,20 +49,24 @@ const insertPost = (posts) => {
         </div>
       </div>
     `
-    };
-    console.log(template)
+    }};
+
     postsMainCards.innerHTML = template;
     return;
 }
+
 fetch(url)
     .then((res) => {
         return res.json()
     })
     .then((res) => {
-        insertPost(res);
+        console.log(res)
+        insertFilteredPost(res);
     })
     .catch((error) => {
         console.log(error)
     })
 
 
+
+      
