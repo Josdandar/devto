@@ -1,16 +1,19 @@
-let url ='https://devto-photoapp-default-rtdb.firebaseio.com/posts.json';
+let urlPosts = 'https://devto-photoapp-default-rtdb.firebaseio.com/posts.json';
+let urlUsers = 'https://devto-photoapp-default-rtdb.firebaseio.com/users.json';
 
 let postsMainCards = document.querySelector('#main_posts_cards');
-const insertPost = (posts) => {
+const insertPost = (posts, userImg) => {
     let template = '';
-    for (post in posts){
+    for (post in posts) {
         template += `
-        <ul class="list-group list-group-flush">
-        <li class="list-group-item user-p1">
+            <div class="ind_card">
+        <ul class="list-group list-group-flush ">
+        <img src="${posts[post].postImage}" class="card-img-top" "alt="...">
+        <li class="list-group-item user-p1" >
             <!--Individual post-->
             <div class="d-flex user-card-p1">
-                <div class="flex-shrink-0 user-pic">
-                    <img src="/assets/images/9.jpg" alt="" srcset="">
+            <div class="flex-shrink-0 user-pic" id="user_info">
+            <img src="${userImg[post].userProfilepic}" alt="" srcset="">
                 </div>
                 <div class="flex-grow-1 ms-3 user-story-text-p1 lh-1">
                     <span class="story-username-p1"><small>${posts[post].postAuthor}</small></span><br>
@@ -32,25 +35,64 @@ const insertPost = (posts) => {
                         srcset=""> 0
                 </div>
                 <div class="bottom-right-p1">
-                    <span class="story-read-time-p1">${posts[post].postTimeToRead}</span><button type="button"
+                    <span class="story-read-time-p1">${posts[post].postTimeToRead}min read</span><button type="button"
                         class="btn btn-secondary btn-sm">Save</button>
                 </div>
             </div>
         </li>
     </ul>
+    </div>
     `
     };
-    console.log(template)
+    
+
     postsMainCards.innerHTML = template;
     return;
-}
-fetch(url)
+};
+
+// const insertUserImg = (img) => {
+//     let templateImg = '';
+//     let imgHolder = document.querySelector('#user_info');
+//     for (userProfilePic in img) {
+        
+//         console.log(img[userProfilePic].userProfilepic)
+//         templateImg += `
+//     <img src="${img[userProfilePic].userProfilepic}" alt="" srcset="">
+//     `
+//     };
+//     imgHolder.innerHTML = templateImg;
+//     return;
+
+// };
+
+
+
+function sortPost(a, b) {
+    return Date.parse(new Date(a.postCreationDate)) - Date.parse(new Date(b.postCreationDate))
+};
+
+fetch(urlPosts)
     .then((res) => {
         return res.json()
     })
     .then((res) => {
-        insertPost(res);
+        let arr = Object.values(res);
+        fetch(urlUsers)
+        .then((res) => {
+            return res.json()
+            
+        })
+        .then((res) => {
+            let arrUser = Object.values(res);
+            insertPost(arr, arrUser);
+            })
+            .catch((error) => {
+                console.log(error)
+            })
     })
     .catch((error) => {
         console.log(error)
     })
+
+let infoUsers = [];
+

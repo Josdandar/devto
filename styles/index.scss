@@ -110,6 +110,11 @@ header {
 }
   
   //End of nav
+
+  .nav-pills {
+    border: none;
+    background-color: #F5F5F5;
+  }
 .aside-izq {
     display:inline-flexbox;
     margin: auto 0;
@@ -130,21 +135,37 @@ header {
 
 
 body {
-    font-family: 'Segoe UI Regular';
-    background-color: #F5F5F5;
+    font-family: 'Segoe UI Regular'!important;
+    background-color: #F5F5F5!important;
 }
 
 .main-wrapper {
-    margin: 0 auto;
+    margin: auto;
     max-width: 1250px;
     padding-top: 100px;
     
+}
+.section_main_cards {
+    gap: 20px;
 }
 .aside-izq{
     color: black;
   }
 .p1 {
     max-width: 100%;
+}
+.card-p1-global{
+    & img {
+        max-height: 273px;
+        object-fit: fill;
+        padding: 0;
+        margin: 0;
+
+    }
+}
+
+.list-group-item {
+    border: none!important;
 }
 
 .user-card-p1 {
@@ -155,7 +176,8 @@ body {
 
     & img {
         margin-left: 10px;
-        max-height: 30px;
+        height: 32px;
+        width: 32px;
         border-radius: 50%;
 
     }
@@ -165,11 +187,13 @@ body {
     padding-bottom: 0;
     padding-top: 10px;
     border-bottom: none;
+
 }
 
 .user-story-text-p1 {
     align-self: baseline;
     margin-left: 0.5rem !important;
+    
 
 }
 
@@ -186,6 +210,7 @@ body {
 
 .story-text-p1 {
     border-bottom: none;
+    border-top: none;
     padding-top: 3px;
     margin-left: 10px;
 }
