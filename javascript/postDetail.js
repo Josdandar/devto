@@ -34,7 +34,6 @@ const getPostById = (postId) =>{
     })
 }
 
-getPostById('-N8RJPxsdXMuHVLLs-30')
 /*
 1.recibe el detalle del post como objeto
 X.retornar un string con formato para poder usarse en html
@@ -42,15 +41,22 @@ X.retornar un string con formato para poder usarse en html
 const generatePostHtml = (postDetail) =>{
     let postDetailTemplate = `
     <div class="card">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
     <h5 class="card-title">${postDetail.postTitle}</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
+    </div>
+    </div>
     `
     return postDetailTemplate
 }
 
+/*
+1. Obtener el postId
+1.1 Puedes leer el queryParam llamado post_id
+1.2 Guardar el queryParam en la variable llamada postId
+X. Mandar el postId como argumento para la función getPostById
+*/
+getPostById('-N8RJPxsdXMuHVLLs-30')
 
