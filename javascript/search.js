@@ -64,7 +64,6 @@ fetch(url)
         return res.json()
     })
     .then((res) => {
-        // console.log(res)
         insertFilteredPost(res);
     })
     .catch((error) => {
