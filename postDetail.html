@@ -1,12 +1,205 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/postDetail.css">
+  </head>
+  <body>
+    <header>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand">Navbar</a>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </header> 
+    <main class="container">
+
+        <div class="col-12 flex-column-reverse d-flex flex-lg-row lg-row-12">
+            <div class="d-flex col-12 col-lg-1 rounded-top sticky-bottom justify-content-center" id="left-aside">
+                <div class="d-flex flex-row col-8 flex-lg-column left-aside-icon-container  col-lg-auto justify-content-evenly py-2" id="icongroup-container">
+
+                    <div class=" d-flex flex-lg-column col-2  col-lg-1 justify-content-between" id="icon-counter-container">
+                        <div class="icon-container">
+                            <input type="checkbox" id="aside-icon-checkboxheart" class="checkboxhider">
+                            <label for="aside-icon-checkboxheart" class="checkedlabel" id="checkboxheaartlabel">
+                              <img src="./assets/images/SVG/heart.png" alt="" class="aside-icon-default">
+                              <img src="./assets/images/SVG/hearthover.png" alt="" class="aside-icon-hover">
+                              <img src="./assets/images/SVG/heartcheked.png" alt="" class="aside-icon-cheked" id="heart">
+                            </label>
+                        </div>
+                        <div class="counter-container d-flex align-items-center justify-content-center">
+                                <Span>11</Span>
+                        </div>
+                    </div>    
+                    <div class=" d-flex flex-lg-column col-2  col-lg-1 justify-content-between" id="icon-counter-container">    
+                        <div class="icon-container">
+                            <input type="checkbox" id="aside-icon-checkboxunicorn" class="checkboxhider">
+                            <label for="aside-icon-checkboxunicorn" class="checkedlabel" id="checkboxheaartlabel">
+                              <img src="./assets/images/SVG/unicorn.png" alt="" class="aside-icon-default">
+                              <img src="./assets/images/SVG/unicornhover.png" alt="" class="aside-icon-hover">
+                              <img src="./assets/images/SVG/unicorncheked.png" alt="" class="aside-icon-cheked" id="unicorn">
+                            </label>
+                        </div>
+                        <div class="counter-container d-flex align-items-center justify-content-center">
+                            <Span>11</Span>
+                        </div>
+                    </div>    
+                    <div class=" d-flex flex-lg-column col-2 justify-content-between col-lg-1" id="icon-counter-container">     
+                        <div class="icon-container">
+                            <input type="checkbox" id="aside-icon-checkboxsave" class="checkboxhider">
+                            <label for="aside-icon-checkboxsave" class="checkedlabel" id="checkboxheaartlabel">
+                              <img src="./assets/images/SVG/save.png" alt="" class="aside-icon-default">
+                              <img src="./assets/images/SVG/savehover.png" alt="" class="aside-icon-hover">
+                              <img src="./assets/images/SVG/savercheked.png" alt="" class="aside-icon-cheked" id="save">
+                            </label>
+                        </div>
+                        <div class="counter-container d-flex align-items-center justify-content-center">
+                            <Span>12</Span>
+                        </div>
+
+                    </div>
+                    <div class=" d-flex flex-lg-column col-2 justify-content-between col-lg-1" id="icon-counter-container"> 
+                        <div class="icon-container">
+                            <input type="checkbox" id="aside-icon-checkboxdots" class="checkboxhider">
+                            <label for="aside-icon-checkboxdots" class="checkedlabel">
+                            <img src="./assets/images/SVG/dots.png" alt="" class="aside-icon-default">
+                            <img src="./assets/images/SVG/dotshover2.png" alt="" class="aside-icon-hover">
+                            <img src="./assets/images/SVG/dotshover2.png" alt="" class="aside-icon-cheked" id="dots">
+                            <div class="pop-menu-container">
+                                <ul class="menu-list p-1 m-0 d-flex flex-column" >
+                                    <li id="list-header"><a class="dropdown-item" href="#"><b>Copylink</b></a></li>
+                                    <li id="list-item"><a class="dropdown-item" href="#">Share to Twitter</a></li>
+                                    <li id="list-item"><a class="dropdown-item" href="#">Share to LinkedIn</a></li>
+                                    <li id="list-item"><a class="dropdown-item" href="#">Share to Reddit</a></li>
+                                    <li id="list-item"><a class="dropdown-item" href="#">Share to Hacker News</a></li>
+                                    <li id="list-item"><a class="dropdown-item" href="#">Share to Facebook</a></li>
+                                    <li id="list-item"><a class="dropdown-item" href="#">Share Post via...</a></li>
+                                    <li id="list-item"><a class="dropdown-item" href="#" >Report Abuse</a></li>
+                                </ul>
+                                <div class="list-menu-icon-container">
+
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <section class="col-12 d-flex flex-column col-lg-12 flex-lg-row justify-content-center">
+                <div class="col-12 col-lg-7 d-flex justify-content-center flex-column" id="post-holder">
+
+                </div>
+                <div class="d-flex col-12 col-lg-3 flex-lg-row">
+                    <aside class="d-flex col-12 flex-column lg-mx-3" id="right-aside-container">
+                        <div class="sticky-property-right-aside " id="user-holder">
+                        <div class="card my-3  " id="right-aside-bottom-card">
+                            <div class="card-header py-3 fs-5 fw-bold">
+                                More From  
+                                <a class="text-decoration-none fw-bold fs-5" href="#Strapi">
+                                    Strapi
+                                </a>
+                            </div>
+                            <ul class="list-group list-group-flush fs-5">
+                                <li class="list-group-item py-3" >
+                                    <a  class="text-decoration-none fs-6"  id="right-aside-card-list"href="">
+                                        <div>
+                                            CSS Logos: GitHub logo
+                                        </div>
+                                        <div>
+                                            #CSS #beginners #webdev
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="list-group-item py-3" >
+                                    <a class="text-decoration-none fs-6"  id="right-aside-card-list" href="">
+                                        <div>
+                                            10 Algorithms Every Developer Should Learn
+                                        </div>
+                                        <div>
+                                            #CSS #beginners #webdev
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="list-group-item py-3" >
+                                    <a class="text-decoration-none fs-6 " id="right-aside-card-list" href="">
+                                        <div>
+                                            Pathfinding with Javascript: The A* Algorithm
+                                        </div>
+                                        <div>
+                                            #CSS #beginners #webdev
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                    
+
+                </aside>
+            </section>
+        </div>
+
+    </main>
+
+
+    <footer class=" d-flex justify-content-center p-5 flex-column">
+        <div class=" justify-content-center py-3 text-center">
+            <a href="">
+                DEV Communuty
+            </a>
+            <span>
+                -- A constructive and inclusive social netwoek for software developers. With you every sted of your journey. 
+            </span> 
+        </div>
+        <div class=" justify-content-center py-1 text-center">
+            <span>
+                Biult on&nbsp;
+            </span>
+            <a href="">
+                Forem
+            </a>
+            <span>
+                -- the 
+                <a href="">
+                    open source
+                </a>
+                    software that powers
+                <a href="">
+                    DEV
+                </a> 
+                and other inclusive communities.
+            </span> 
+        </div>
+        <div class=" justify-content-center py-1 text-center">
+            <span>
+                Made with love and&nbsp;
+            </span> 
+            <a href="">
+                Ruby on Rails.
+            </a>
+            <span>
+                &nbsp;DEV Community© 2016 - 2022.
+            </span> 
+        </div>
+        <div class="d-flex justify-content-center" >
+            <a href="#"><img src="./assets/images/hojitas.png" alt="" id="leaves"></a>
+        </div>
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="./javascript/postDetail.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+  </body>
 </html>

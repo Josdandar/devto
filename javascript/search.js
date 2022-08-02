@@ -1,5 +1,9 @@
 let url ='https://devto-photoapp-default-rtdb.firebaseio.com/posts.json';
-let strToFilter= "Kay"
+
+let searchTitleHolder = document.querySelector('#search_title_holder');
+let strToFilter= "phone"
+searchTitleHolder.innerHTML =`<b>Search results for ${strToFilter}</b>`;
+
 let strLower = strToFilter.toLowerCase()
 let postsMainCards = document.querySelector('#card_holder');
 const insertFilteredPost = (posts) => {
@@ -20,7 +24,7 @@ const insertFilteredPost = (posts) => {
                 
 
         
-        template += `<div class="card p-3 m-2" id="card_resume">
+        template += `<div class="card p-3 m-2" id="card-resume">
         <div class="d-flex" style="height: 3rem;">
             <div>
                 <img src="${posts[post].postImage}" class="rounded-circle me-1" alt="Userpic" style="height:40px; width:40px">
@@ -60,7 +64,7 @@ fetch(url)
         return res.json()
     })
     .then((res) => {
-        console.log(res)
+        // console.log(res)
         insertFilteredPost(res);
     })
     .catch((error) => {
