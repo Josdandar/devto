@@ -16,9 +16,9 @@
     <main>
         <header>
             <nav class="navbar">
-                <div class="container align-items-center">
+                <div class="container d-flex align-items-center">
                     <div class="d-flex align-items-center">
-                        <button id="offcanvas_btn" class="btn d-inline-block d-md-none navbar-toggler" type="button"
+                        <button id="offcanvas_btn" class="btn d-inline-block d-md-none navbar-toggler burguer-button" type="button"
                             data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
                             aria-controls="offcanvasExample">
                             <span class="navbar-toggler-icon nav-span"></span>
@@ -39,7 +39,9 @@
                         </div>
                     </div>
                     <div class="right-nav d-flex align-items-center">
-                        <button type="button" class="btn btn-outline-primary nav-button">Create post</button>
+                        <div class="nav-button">
+                            <button type="button" class="btn btn-outline-primary">Create post</button>
+                        </div>
                         <a href="#"><img src="/assets/icons/notifications.png" alt="" srcset="" class="p1_icon"></a>
                         <a href="#"><img src="/assets/images/29.jpg" alt="" srcset="" class="profile"></a>
                     </div>
@@ -122,6 +124,7 @@
                 </div>
             </nav>
         </header>
+        <!-- Start of Left Aside -->
         <div class="container col-12 main-wrapper">
             <div class="row">
                 <aside class="aside-izq col-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3" id="aside">
@@ -214,15 +217,15 @@
                 </aside>
 
 
-
+<!-- End of Left Aside -->
                 <!--Marco's section-->
                 <!--Main navigation section -->
                 <section class="container p1 col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 section_main_cards">
                     <ul class="nav nav-pills" id="pills-tab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link active" href="#relevant-content" id="pills-relevant-tab"
-                                data-bs-toggle="pill" data-bs-target="#pills-relevant" type="button" role="tab"
-                                aria-controls="pills-relevant" aria-selected="true" role="button">Relevant</a>
+                        <li class="nav-tabs" role="presentation">
+                            <a class="nav-link" href="#relevant-content" id="pills-relevant-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-relevant" type="button" role="tab" aria-controls="pills-relevant"
+                                aria-selected="true" role="button">Relevant</a>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="pills-latest-tab" data-bs-toggle="pill"
@@ -247,10 +250,13 @@
                     <!--User posts section-->
                     <div class="row main_section">
                         <div class="container col-12">
-                            <div class="card col-12 card-p1-global" id="main_posts_cards"><a href="/postDetail.html">
-                                    <!--Individual post-->
+                            <div class="card col-12 card-p1-global" id="main_posts_cards">
 
-                                </a>
+
+                            </div>
+                            
+                            <div class="card col-12 card-p1-global" id="main_posts_cards2">
+
                             </div>
 
 
@@ -312,3 +318,10 @@
 </body>
 
 </html>
+
+
+
+
+
+
+

@@ -38,13 +38,22 @@ nav {
   background-color: white;
 }
 
+.burguer-button {
+  border: none;
+}
+
 .elementos {
   max-width: 1250px;
   margin-left: 305px;
 }
 
 .offcanvas {
-  max-width: 300px;
+  max-width: 250px !important;
+}
+.offcanvas li {
+  display: block;
+  text-decoration: none;
+  padding: 8px;
 }
 .offcanvas a {
   text-decoration: none;
@@ -85,6 +94,18 @@ nav {
   text-align: center;
 }
 
+.right-nav {
+  gap: 10px;
+}
+
+@media only screen and (max-width: 425px) {
+  .nav-button {
+    display: none;
+  }
+  .aside-izq {
+    display: none;
+  }
+}
 .navbar-brand img {
   width: 48px;
   height: 38px;
@@ -106,6 +127,11 @@ nav {
   background-color: #F5F5F5;
 }
 
+.nav-link button {
+  color: #000000;
+  background: #F5F5F5;
+}
+
 .aside-izq {
   display: inline-flexbox;
   margin: auto 0;
@@ -113,6 +139,7 @@ nav {
 .aside-izq li {
   display: block;
   text-decoration: none;
+  padding: 8px;
 }
 .aside-izq a {
   text-decoration: none;
@@ -144,6 +171,12 @@ body {
 
 .p1 {
   max-width: 100%;
+}
+
+.ind_card {
+  background-color: #FAFAFA;
+  border: none;
+  margin-bottom: 10px;
 }
 
 .card-p1-global img {
@@ -198,7 +231,9 @@ body {
 }
 
 .story-title-p1 {
-  font-size: 18px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
   letter-spacing: 1px;
 }
 
