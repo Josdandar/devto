@@ -17,7 +17,7 @@ const insertFilteredPost = (posts) => {
             let tagstemplate=``;
             tagsArray.forEach(cv => {
                 console.log(cv)
-                tagstemplate+=`<a href="#" class="card-link">${cv}</a>`
+                tagstemplate+=`<a href="#" class="card-link">#${cv}</a>`
                 
             });
            

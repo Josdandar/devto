@@ -1,11 +1,10 @@
 let posturl ='https://devto-photoapp-default-rtdb.firebaseio.com/posts/-N8RJPxsdXMuHVLLs-30.json';
 let userurl ='https://devto-photoapp-default-rtdb.firebaseio.com/users/-N8RJPww_niZjLYxXLB2.json';
 
-;
-
-
 let postsDetailMain = document.querySelector('#post-holder');
 let postsLeftAside = document.querySelector('#left-aside');
+
+
     const insertPost = (posts) => {
 
 
@@ -80,6 +79,15 @@ let postsLeftAside = document.querySelector('#left-aside');
 
 </div>
     `
+    let tagsArray = posts.postTags.split(" ");
+    console.log(tagsArray)
+    let tagstemplate=``;
+    tagsArray.forEach(cv => {
+        console.log(cv)
+        tagstemplate+=`<a href="${cv}" class="card-link">#${cv}</a>`
+        
+    });
+   
     template = `
   <div class="card">
     <img src="${posts.postImage}" class="card-img-top" alt="POSTIMAGE" style="height:30%">
@@ -95,13 +103,14 @@ let postsLeftAside = document.querySelector('#left-aside');
     </div>
     <div class="card-title text-styles">
         <h1>${posts.postTitle}</h1>
-        <a href="https://dev.to/t/git" class="git-tag ">#git</a>
+        
+        ${tagstemplate}
     </div>
     <div class="card-text">
         <p>${posts.postBody}</p>
     </div>
-    <div class="card mb-nutria">
-        <img src="./assets/morza.jpg" class="card-img-top" alt="nutria-image">
+    <div class="card mb-img">
+        
         <div class="card-body">
           <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--sn4XzJyl--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://pbs.twimg.com/profile_images/839643754126417920/6trsFcTQ_normal.jpg" alt="The Practical Dev profile image">
           <div class="twitter-access">
