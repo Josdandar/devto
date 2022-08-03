@@ -58,9 +58,16 @@ publishBtn.addEventListener('click', () => {
   otherPost.postTimeToRead = quill.getText().length/1500;
   const d = new Date();
   d.getTime();
-  otherPost.postCreationDate =d;
-  otherPost.postTags= (input.value);
+  otherPost.postCreationDate =d;  
+  otherPost.postTags=[];
+  JSON.parse((input.value)).forEach(cv => {
+    console.log(cv.value)
+    otherPost.postTags.push(cv.value)
+  });
+
+  
   createPost(otherPost)
+  console.log(otherPost)
 
 })
 
