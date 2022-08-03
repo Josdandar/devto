@@ -47,9 +47,13 @@ header {
 .burguer-button {
     border: none;
 }
+.navbar {
+    max-width: 1250px;
+
+}
 
 .elementos {
-    max-width: 1250px;
+    
     margin-left: 305px;
 
 }
@@ -166,6 +170,7 @@ header {
 
 
 body {
+    width: 100%;
     font-family: 'Segoe UI Regular'!important;
     background-color: #F5F5F5!important;
 }

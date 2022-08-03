@@ -42,8 +42,11 @@ nav {
   border: none;
 }
 
-.elementos {
+.navbar {
   max-width: 1250px;
+}
+
+.elementos {
   margin-left: 305px;
 }
 
@@ -151,6 +154,7 @@ nav {
 }
 
 body {
+  width: 100%;
   font-family: "Segoe UI Regular" !important;
   background-color: #F5F5F5 !important;
 }
