@@ -1,7 +1,7 @@
 let url ='https://devto-photoapp-default-rtdb.firebaseio.com/posts.json';
 
 let searchTitleHolder = document.querySelector('#search_title_holder');
-let strToFilter= "phone"
+let strToFilter= "lamp"
 searchTitleHolder.innerHTML =`<b>Search results for ${strToFilter}</b>`;
 
 let strLower = strToFilter.toLowerCase()
