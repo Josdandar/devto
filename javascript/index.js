@@ -12,7 +12,7 @@ const insertPost = (posts, arrKeys, userImg) => {
     let template = '';
     template += `
     <a href="./postDetail.html?postId=${arrKeys[0]}" class="post_detail_id">
-    <div class="ind_card">
+    <div class="ind_card my-2">
         <ul class="list-group list-group-flush ">
         <img src="${posts[0].postImage}" class="card-img-top" "alt="...">
         <li class="list-group-item user-p1" >
@@ -59,7 +59,7 @@ const insertPost = (posts, arrKeys, userImg) => {
     for (post in posts) {
         template += `
         <a href="./postDetail.html?postId=${arrKeys[post]}" class="post_detail_id2">
-        <div class="ind_card">
+        <div class="ind_card my-2">
     <ul class="list-group list-group-flush">
         <li class="list-group-item user-p1">
             <!--Individual post-->
@@ -99,11 +99,16 @@ const insertPost = (posts, arrKeys, userImg) => {
     postsMainCards2.innerHTML = template;
     return;
 };
+// Define and store the input value on the 'Search' box
+let input = document.querySelector('.input-text');
+let findInput = document.querySelector('#find-input');
+let searchText = '';
+findInput.addEventListener('input', () =>{ searchText = findInput.value});
 
+//When the search i
+let searchClick = document.querySelector('.input-search');
+searchClick.addEventListener('search', () =>{ window.location.href = `/search.html?searchId=${searchText}`});
 
-function sortPost(a, b) {
-    return Date.parse(new Date(a.postCreationDate)) - Date.parse(new Date(b.postCreationDate))
-};
 
 // Fetch the info from the db for both the Posts and the Users data, reverse the arrays and call the insertPost function.
 fetch(urlPosts)
