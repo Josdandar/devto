@@ -28,7 +28,7 @@ const insertPost = (posts, arrKeys, userImg) => {
             </div>
         </li>
         <li class="list-group-item story-text-p1">
-            <div class="fw-bold story-title-p1">${posts[0].postTitle}
+            <div class="story-title-p1-1">${posts[0].postTitle}
             </div>
             <div class="fw-light story-reference-p1">${posts[0].postTags}</div>
         </li>
@@ -42,7 +42,7 @@ const insertPost = (posts, arrKeys, userImg) => {
                 </div>
                 <div class="bottom-right-p1">
                     <span class="story-read-time-p1">${posts[0].postTimeToRead}min read</span><button type="button"
-                        class="btn btn-secondary btn-sm">Save</button>
+                        class="btn-sm">Save</button>
                 </div>
             </div>
         </li>
