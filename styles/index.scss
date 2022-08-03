@@ -139,6 +139,23 @@ header {
   .nav-pills {
     border: none;
     background-color: #F5F5F5;
+    & li{
+        display: block;
+        text-decoration: none;
+        padding: 8px;
+
+    }
+    & a {
+        text-decoration: none;
+        color: #000000;
+        font-family: 'Segoe UI';
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px; 
+    }
+    & button {
+        color: #000000;
+    }
     
   }
   .nav-link {
@@ -181,9 +198,9 @@ body {
     padding-top: 100px;
     
 }
-.section_main_cards {
-    gap: 20px;
-}
+// .section_main_cards {
+//     gap: 20px;
+// }
 .aside-izq{
     color: black;
   }
@@ -194,19 +211,28 @@ body {
     background-color: #FAFAFA;
     border: none;
     margin-bottom: 10px;
+    
 }
 .card-p1-global{
+    border-radius: 0.5rem;
     & img {
         max-height: 273px;
         object-fit: fill;
         padding: 0;
         margin: 0;
+        
 
     }
 }
 
 .list-group-item {
     border: none!important;
+}
+.border-card {
+    border: #e7e6e6 solid 1px;
+    border-radius: 0.5rem;
+
+    
 }
 
 .user-card-p1 {
@@ -251,7 +277,6 @@ body {
 
 .story-text-p1 {
     border-bottom: none;
-    border-top: none;
     padding-top: 3px;
     margin-left: 10px;
 }
@@ -285,7 +310,7 @@ body {
 .btn-sm {
     background-color: #BDBDBD;
     color: #000000;
-    border: none
+    border: none;
 }
 
 .bottom-left-p1 {
@@ -348,4 +373,14 @@ body {
     a {
         text-decoration: none;
     }
+}
+.link-aside{
+    text-decoration: none;
+    font-family: 'Segoe UI Bold';
+    
+}
+.card-p1-global{
+    a{
+    text-decoration: none;
+}
 }
