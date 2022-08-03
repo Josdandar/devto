@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/styles/editPost.css">
     <link rel="icon" type="image/x-icon" href="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -32,87 +33,12 @@
                 <textarea class="input-tags" placeholder="Add up to 4 tags" rows="2" cols="1"></textarea>
                 <div class="buttons-container">
                     <div class="butons-collection">
-                        <button><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bold" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M7 5h6a3.5 3.5 0 0 1 0 7h-6z"></path>
-                            <path d="M13 12h1a3.5 3.5 0 0 1 0 7h-7v-7"></path>
-                         </svg></button>
-                         <button><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-italic" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <line x1="11" y1="5" x2="17" y2="5"></line>
-                            <line x1="7" y1="19" x2="13" y2="19"></line>
-                            <line x1="14" y1="5" x2="10" y2="19"></line>
-                         </svg></button>
-                         <button><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path>
-                            <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path>
-                         </svg></button>
-                         <button><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-list-numbers" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M11 6h9"></path>
-                            <path d="M11 12h9"></path>
-                            <path d="M12 18h8"></path>
-                            <path d="M4 16a2 2 0 1 1 4 0c0 .591 -.5 1 -1 1.5l-3 2.5h4"></path>
-                            <path d="M6 10v-6l-2 2"></path>
-                         </svg></button>
-                         <button><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-list" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <line x1="9" y1="6" x2="20" y2="6"></line>
-                            <line x1="9" y1="12" x2="20" y2="12"></line>
-                            <line x1="9" y1="18" x2="20" y2="18"></line>
-                            <line x1="5" y1="6" x2="5" y2="6.01"></line>
-                            <line x1="5" y1="12" x2="5" y2="12.01"></line>
-                            <line x1="5" y1="18" x2="5" y2="18.01"></line>
-                         </svg></button>
-                         <button><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heading" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M7 12h10"></path>
-                            <path d="M7 5v14"></path>
-                            <path d="M17 5v14"></path>
-                            <path d="M15 19h4"></path>
-                            <path d="M15 5h4"></path>
-                            <path d="M5 19h4"></path>
-                            <path d="M5 5h4"></path>
-                         </svg></button>
-                         <button><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-quote" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
-                            <path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
-                         </svg></button>
-                         <button><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-code" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <polyline points="7 8 3 12 7 16"></polyline>
-                            <polyline points="17 8 21 12 17 16"></polyline>
-                            <line x1="14" y1="4" x2="10" y2="20"></line>
-                         </svg></button>
-                         <button><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-code-off" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M7 8l-4 4l4 4"></path>
-                            <path d="M17 8l4 4l-2.5 2.5"></path>
-                            <path d="M14 4l-1.201 4.805m-.802 3.207l-1.997 7.988"></path>
-                            <path d="M3 3l18 18"></path>
-                         </svg></button>
-                         <button><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bolt" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <polyline points="13 3 13 10 19 10 11 21 11 14 5 14 13 3"></polyline>
-                         </svg></button>
-                         <button><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-photo" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <line x1="15" y1="8" x2="15.01" y2="8"></line>
-                            <rect x="4" y="4" width="16" height="16" rx="3"></rect>
-                            <path d="M4 15l4 -4a3 5 0 0 1 3 0l5 5"></path>
-                            <path d="M14 14l1 -1a3 5 0 0 1 3 0l2 2"></path>
-                         </svg></button>
+                        <div id="editor" class="quills-div">
+                            <p>Write your post content here...</p>
+                            <p><br></p>
+                          </div>
                     </div>
-                    <button class="three-dots-button"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-dots-vertical" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <circle cx="12" cy="12" r="1"></circle>
-                        <circle cx="12" cy="19" r="1"></circle>
-                        <circle cx="12" cy="5" r="1"></circle>
-                     </svg></button>
                 </div>
-                <textarea class="post-content-input" placeholder="Write your post content here..." rows="7"></textarea>
             </div>
             <div class="outside-buttons">
                 <button class=" btn btn-primary outside-button">Publish</button>
@@ -138,6 +64,8 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="/javascript/editPost.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 </html>
