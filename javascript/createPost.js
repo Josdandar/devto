@@ -24,12 +24,12 @@ const otherPost = {
     postChangeDate: "",
     postCreationDate: "",
     postImage: "",
-    postLikesCount: "0",
-    postSavedCount: "0",
+    postLikesCount: 0,
+    postSavedCount: 0,
     postTags: [],
     postTimeToRead: "",
     postTitle: "",
-    postUnicornCount: "0"
+    postUnicornCount: 0
 }
 
 let urlPostImg = document.querySelector('#url_post_img')

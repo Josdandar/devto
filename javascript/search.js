@@ -8,34 +8,37 @@ const insertFilteredPost = (posts) => {
 let searchBtnHolder = document.querySelector('#btn_left_aside');
 let searchTitleHolder = document.querySelector('#search_title_holder');
 let strToFilter= search
-searchBtnHolder.innerHTML =`<a href="#" class="btn active" i aria-current="page">Posts</a>
+searchBtnHolder.innerHTML =`<a href="http://127.0.0.1:5500/search.html?searchId=${search}" class="btn active" i aria-current="page">Posts</a>
 <a href="#" class="btn">Podcasts</a>
 <a href="#" class="btn">People</a>
-<a href="#" class="btn">Tags</a>
+<a href="http://127.0.0.1:5500/search.html?searchTag=${search}" class="btn">Tags</a>
 <a href="#" class="btn">Comments</a>
 <a href="#" class="btn">My posts only</a>`
 searchTitleHolder.innerHTML =`<b>Searsch results for ${strToFilter}</b>`;
 
 let strLower = strToFilter.toLowerCase()
+
 let postsMainCards = document.querySelector('#card_holder');
     let template = '';
-    for (post in posts){
-        if(posts[post].postTitle.toLowerCase().match(strLower) ||
-        posts[post].postAuthor.toLowerCase().match(strLower)||
-        posts[post].postTags.toLowerCase().match(strLower)) {
-            let tagsArray = posts[post].postTags.split(" ");
 
-            //Agarrar arreglo del tag , convertirlo en string de string separadas en espacios (" ")
-            //Agarrar arreglo del jo
+    for (post in posts){
+        let tagstring = posts[post].postTags.toString();
+
+
+        if(posts[post].postTitle.toLowerCase().match(strLower) ||
+        posts[post].postAuthor.toLowerCase().match(strLower)
+         || tagstring.toLowerCase().match(strLower)) {
+
             
-            let tagstemplate=``;
-            tagsArray.forEach(cv => {
+             let tagstemplate=``;
+             posts[post].postTags.forEach(cv => {
                 
-                tagstemplate+=`<a href="search.html?searchTag=${cv}" class="card-link" style="text-decoration: none;">
-                <button type="button" class="btn btn-sm" id=transparent_btn>#${cv}</button>
-                </a>`
+                 tagstemplate+=`<a href="search.html?searchTag=${cv}" class="card-link" style="text-decoration: none;">
+                 <button type="button" class="btn btn-sm" id=transparent_btn>#${cv}</button>
+                 </a>`
                 
-            });
+             });
+
            
                 
 
@@ -53,11 +56,11 @@ let postsMainCards = document.querySelector('#card_holder');
         </div>
         <div class="card-body ps-5">
           <h5 class="card-title">${posts[post].postTitle}</h5>
-          ${tagstemplate}
+           ${tagstemplate}
         </div>
         <div class="d-flex justify-content-between ps-5" style="height: 3rem;">
             <div class="text-center align-middle pt-2">
-                <button type="button" class="btn btn-light">${posts[post].postLikesCount+posts[post].postSavedCount+posts[post].postUnicornCount} reaction</button>
+                <button type="button" class="btn btn-light">${posts[post].postLikesCount+posts[post].postSavedCount+posts[post].postUnicornCount} reactions</button>
                 <button type="button" class="btn btn-light">0 comments</button>
                 
             </div>
@@ -81,23 +84,24 @@ const insertFilteredTag = (posts) => {
 let searchBtnHolder = document.querySelector('#btn_left_aside');
 let searchTitleHolder = document.querySelector('#search_title_holder');
 let strToFilter= search
-searchBtnHolder.innerHTML =`<a href="#" class="btn" i aria-current="page">Posts</a>
+searchBtnHolder.innerHTML =`<a href="http://127.0.0.1:5500/search.html?searchId=${search}" class="btn" i aria-current="page">Posts</a>
 <a href="#" class="btn">Podcasts</a>
 <a href="#" class="btn">People</a>
-<a href="#" class="btn active">Tags</a>
+<a href="http://127.0.0.1:5500/search.html?searchTag=${search}" class="btn active">Tags</a>
 <a href="#" class="btn">Comments</a>
 <a href="#" class="btn">My posts only</a>`
-searchTitleHolder.innerHTML =`<b>Searsch results for ${strToFilter}</b>`;
+searchTitleHolder.innerHTML =`<b>Searsch results for ${search}</b>`;
 
 let strLower = strToFilter.toLowerCase()
 let postsMainCards = document.querySelector('#card_holder');
     let template = '';
     for (post in posts){
-        if(posts[post].postTags.toLowerCase().match(strLower)) {
-            let tagsArray = posts[post].postTags.split(" ");
+        let tagstring = posts[post].postTags.toString();
+        if(tagstring.toLowerCase().match(strLower)) {
+            
             
             let tagstemplate=``;
-            tagsArray.forEach(cv => {
+            posts[post].postTags.forEach(cv => {
                 
                 tagstemplate+=`<a href="search.html?searchTag=${cv}" class="card-link" style="text-decoration: none;">
                 <button type="button" class="btn btn-sm" id=transparent_btn>#${cv}</button>
@@ -162,17 +166,9 @@ let postsMainCards = document.querySelector('#card_holder');
     let template = '';
     for (post in posts){
         if(posts[post].postAuthor.toLowerCase().match(strLower)) {
-            let tagsArray = posts[post].postTags.split(" ");
+       
             
-            let tagstemplate=``;
-            tagsArray.forEach(cv => {
-                
-                tagstemplate+=`<a href="search.html?searchTag=${cv}" class="card-link" style="text-decoration: none;">
-                <button type="button" class="btn btn-sm" id=transparent_btn>#${cv}</button>
-                </a>`
-                
-            });
-           
+
                 
 
         
@@ -189,7 +185,7 @@ let postsMainCards = document.querySelector('#card_holder');
         </div>
         <div class="card-body ps-5">
           <h5 class="card-title">${posts[post].postTitle}</h5>
-          ${tagstemplate}
+
         </div>
         <div class="d-flex justify-content-between ps-5" style="height: 3rem;">
             <div class="text-center align-middle pt-2">
