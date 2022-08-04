@@ -51,7 +51,6 @@ header {
     max-width: 1250px;
 
 }
-
 .elementos {
     
     margin-left: 305px;
@@ -109,6 +108,10 @@ header {
 .right-nav {
     gap: 10px;
 }
+.dropdown-item:hover {
+    background-color: rgb(234,236,252)!important;
+
+}
 
 @media only screen and (max-width:425px){
     .nav-button{
@@ -130,8 +133,8 @@ header {
 }
 .profile {
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 32px;
+    height: 32px;
 }
   
   //End of nav
@@ -167,7 +170,7 @@ header {
 }
 .aside-izq {
     display:inline-flexbox;
-    margin: auto 0;
+    margin: auto;
     li {
         display: block;
         text-decoration: none;
@@ -307,19 +310,23 @@ body {
 .card-bottom-p1 {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 12px;
 }
 
 .bottom-right-p1 {
     display: inline-block;
-    margin-right: 20px;
+    padding-right: 4px;
 }
 
 .btn-sm {
-    width: 52px;
+    width: 54px;
+    height: 32px;
     padding: none;
-    & button {
-    background-color: #D6D6D7;
     border: none;
+    border-color: none;
+    border-radius: 5px;
+    background-color: #BDBDBD;
+    & button {
     font-size: 14px;
     line-height: 24px;
 }

@@ -2,6 +2,12 @@
 let urlPosts = 'https://devto-photoapp-default-rtdb.firebaseio.com/posts.json';
 let urlUsers = 'https://devto-photoapp-default-rtdb.firebaseio.com/users.json';
 
+
+
+
+
+
+
 // Select where the cards will be inserted
 let postsMainCards = document.querySelector('#main_posts_cards');
 let postsMainCards2 = document.querySelector('#main_posts_cards2');
@@ -87,7 +93,7 @@ const insertPost = (posts, arrKeys, userImg) => {
                 </div>
                 <div class="bottom-right-p1">
                     <span class="story-read-time-p1">${posts[post].postTimeToRead}min read</span><button type="button"
-                        class="btn btn-secondary btn-sm">Save</button>
+                        class="btn-sm">Save</button>
                 </div>
             </div>
         </li>
