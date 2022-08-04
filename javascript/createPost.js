@@ -12,7 +12,8 @@ var quill = new Quill('#editor', {
 
     hRequest.open("POST",'https://devto-photoapp-default-rtdb.firebaseio.com/posts.json', false);
     hRequest.send(JSON.stringify(post));
-    return post.postTitle + 'created'
+
+    return 
 }
 
 var input = document.querySelector('input[name=tags]'),
@@ -39,12 +40,6 @@ let postBody = document.querySelector('#editor')
 let publishBtn = document.querySelector("#save_btn")
 
 
-quill.on('text-change', function(delta, oldDelta, source) {
-  if (source == 'user') {
-    console.log(quill.root.innerHTML);
-    return 
-  }
-});
 
 
 saveImgUrl.addEventListener('click', () => {
@@ -62,13 +57,14 @@ publishBtn.addEventListener('click', () => {
   otherPost.postTags=[];
   console.log(input.value)
   JSON.parse((input.value)).forEach(cv => {
-    console.log(cv.value)
-    otherPost.postTags.push(cv.value)
+  otherPost.postTags.push(cv.value)
   });
 
   
   createPost(otherPost)
-  console.log(otherPost)
+
+  window.location.href="/index.html"
+  
 
 })
 
