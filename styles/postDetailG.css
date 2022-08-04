@@ -3,6 +3,34 @@ body {
   width: 100vw;
 }
 
+.card-img-top{
+  max-height: 325px;
+}
+
+.card-title{
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.btn-primary{
+  background-color: #190AA4 !important;
+}
+
+.form-comments{
+  margin-left: 50px;
+}
+.card-text{
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.image-title img {
+  border-radius: 50%;
+}
+
+.text-styles a {
+  text-decoration: none !important;
+  color: #000000;
+}
+
 footer {
   background-color: #E4E5E4;
   font-family: sans-serif;
@@ -149,4 +177,4 @@ footer a {
 
 .pop-menu-container {
   display: none;
-}/*# sourceMappingURL=postDetail.css.map */
+}/*# sourceMappingURL=postDetailG.css.map */
