@@ -2,10 +2,38 @@
 let urlPosts = 'https://devto-photoapp-default-rtdb.firebaseio.com/posts.json';
 let urlUsers = 'https://devto-photoapp-default-rtdb.firebaseio.com/users.json';
 
+// Load user Profile data
+let userProfile = document.querySelector('#dropdown-user');
+const insUserProfile = (user) => {
+    let templateUser = '';
+    templateUser +=`
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">${user[0].userName} ${user[0].userLastname}<br>@${user[0].userNickname}</a></li>
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#">Dashboard</a></li>
+        <li><a class="dropdown-item" href="#">Create Post</a></li>
+        <li><a class="dropdown-item" href="#">Reading List</a></li>
+        <li><a class="dropdown-item" href="#">Settings</a></li>
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#">Sign Out</a></li>
+    </ul>
+    <style>
+        .dropdown-toggle::after {
+            content: none;
+                                }
+    </style>
+    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+        role="button" aria-expanded="false"><img src="https://www.poblanerias.com/wp-content/archivos/2018/05/Axolotl.jpg" alt="" srcset=""
+            class="profile"></a>
 
-
-
-
+</div>
+`
+userProfile.innerHTML = templateUser;
+};
 
 
 // Select where the cards will be inserted
@@ -18,7 +46,6 @@ const insertPost = (posts, arrKeys, userImg) => {
     let template = '';
     let tagsArray = posts[0].postTags.join("\n");
     let tagsArray2 = tagsArray.split("\n");
-    console.log(tagsArray2)
     template += `
     <a href="./postDetail.html?postId=${arrKeys[0]}" class="post_detail_id">
     <div class="ind_card border-card">
@@ -40,22 +67,20 @@ const insertPost = (posts, arrKeys, userImg) => {
             <div class="story-title-p1-1">${posts[0].postTitle}
             </div>
             <div class="fw-light story-reference-p1">`
-            tagsArray2.forEach(cv => {
-                let cv2 = cv;
-                console.log(cv2)
-                template +=
-                `<a href="/search.html?searchTag=${cv}" class="post-tags">#${cv} </a>`
-            });
-            template +=
-            `</div>
+    tagsArray2.forEach(cv => {
+        template +=
+            `<a href="/search.html?searchTag=${cv}" class="post-tags">#${cv} </a>`
+    });
+    template +=
+        `</div>
         </li>
         <li class="list-group-item">
             <div class="card-bottom-p1">
                 <div class="bottom-left-p1">
                     <img src="/assets/images/heart.png" class="properties-icon-p1" alt=""
-                        srcset=""> ${posts[0].postLikesCount}
+                        srcset=""> ${posts[0].postLikesCount} Reactions
                     <img src="/assets/images/coment.png" class="properties-icon-p1" alt=""
-                        srcset=""> 0
+                        srcset=""> 0 Comments
                 </div>
                 <div class="bottom-right-p1">
                     <span class="story-read-time-p1">${posts[0].postTimeToRead} min read</span><button type="button"
@@ -76,7 +101,6 @@ const insertPost = (posts, arrKeys, userImg) => {
     for (post in posts) {
         tagsArray = posts[post].postTags.join("\n");
         tagsArray2 = tagsArray.split("\n");
-        
         template += `
         <a href="./postDetail.html?postId=${arrKeys[post]}" class="post_detail_id2">
         <div class="ind_card my-2 border-card">
@@ -94,18 +118,16 @@ const insertPost = (posts, arrKeys, userImg) => {
         </div>
         </li>
         <li class="list-group-item story-text-p1">
-        <div class="fw-bold story-title-p1">${posts[post].postTitle}
+        <div class="story-title-p1">${posts[post].postTitle}
         </div>
         <div class="fw-light story-reference-p1">
         `
         tagsArray2.forEach(cv => {
-            let cv2 = cv;
-            console.log(cv2)
             template +=
-            `<a href="/search.html?searchTag=${cv}">#${cv} </a>`
+                `<a href="/search.html?searchTag=${cv}">#${cv} </a>`
         });
         template +=
-        `
+            `
         </li>
         <li class="list-group-item">
         <div class="card-bottom-p1">
@@ -122,9 +144,9 @@ const insertPost = (posts, arrKeys, userImg) => {
         </li>
     </ul>
 </div></a> `
-    postsMainCards2.innerHTML = template;
-    
-};
+        postsMainCards2.innerHTML = template;
+
+    };
 
 
     return;
@@ -134,15 +156,15 @@ const insertPost = (posts, arrKeys, userImg) => {
 let input = document.querySelector('.input-text');
 let findInput = document.querySelector('#find-input');
 let searchText = '';
-findInput.addEventListener('input', () =>{ searchText = findInput.value});
+findInput.addEventListener('input', () => { searchText = findInput.value });
 
 //When the search is done and the 'Enter' key is pressed, the search page is displayed with the results
 let searchClick = document.querySelector('.input-search');
-searchClick.addEventListener('search', () =>{ window.location.href = `/search.html?searchId=${searchText}`});
+searchClick.addEventListener('search', () => { window.location.href = `/search.html?searchId=${searchText}` });
 
 //When clicking on the 'Create Post' button it will display the createPost page.
 let createPostBtn = document.querySelector('.button-create-post');
-createPostBtn.addEventListener('click', () =>{ window.location.href = `/createPost.html`});
+createPostBtn.addEventListener('click', () => { window.location.href = `/createPost.html` });
 
 // Fetch the info from the db for both the Posts and the Users data, reverse the arrays and call the insertPost function.
 fetch(urlPosts)
@@ -150,7 +172,6 @@ fetch(urlPosts)
         return res.json();
     })
     .then((res) => {
-        console.log(res)
         let arr = Object.values(res);
         let arrKeys = Object.keys(res);
         fetch(urlUsers)
@@ -160,9 +181,10 @@ fetch(urlPosts)
             })
             .then((res) => {
                 let arrUser = Object.values(res);
+                insUserProfile(arrUser);
                 let arrInv = arr.reverse();
                 let arrKeysInv = arrKeys.reverse();
-                let arrUserInv = arrUser.reverse(); 
+                let arrUserInv = arrUser.reverse();
                 insertPost(arrInv, arrKeysInv, arrUserInv);
             })
             .catch((error) => {
