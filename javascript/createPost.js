@@ -55,11 +55,12 @@ publishBtn.addEventListener('click', () => {
   otherPost.postImage = urlPostImg.value
   otherPost.postTitle = postTitle.value
   otherPost.postBody = quill.root.innerHTML;
-  otherPost.postTimeToRead = quill.getText().length/1500;
+  otherPost.postTimeToRead = Math.ceil(quill.getText().length/1500);
   const d = new Date();
   d.getTime();
   otherPost.postCreationDate =d;  
   otherPost.postTags=[];
+  console.log(input.value)
   JSON.parse((input.value)).forEach(cv => {
     console.log(cv.value)
     otherPost.postTags.push(cv.value)
