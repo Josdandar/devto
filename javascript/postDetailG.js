@@ -8,8 +8,7 @@ let postsDetailMain = document.querySelector('#post-holder');
 let postsLeftAside = document.querySelector('#left-aside');
 
 
-    const insertPost = (posts, posts2) => {
-
+    const insertPost = (posts) => {
 
     templateleft=`
 <div class="d-flex flex-row col-8 flex-lg-column left-aside-icon-container  col-lg-auto justify-content-evenly py-2" id="icongroup-container">
@@ -116,7 +115,6 @@ let postsLeftAside = document.querySelector('#left-aside');
      return; }
 let AuthorDetailMain = document.querySelector('#user-holder');
     const insertUser = (user) => {
-        console.log()
          template = `
         <div class="card my-3  rounded-3 "  id="right-aside-top-card">
          <div class="card-header-color rounded-top just" id="right-aside-card">
@@ -201,10 +199,11 @@ let AuthorDetailMain = document.querySelector('#user-holder');
  5. leer el objeto de tipo json con la información del post
  6. inyectar el detalle del post obtenido por el Id en el html
   */
-const getPostById = (postId) =>{
-    let url = 'https://devto-photoapp-default-rtdb.firebaseio.com/posts/' + postId + '/.json'
-    fetch( url ,{
-    method: 'GET'
+
+ const getPostById = (postId) =>{
+     let url = 'https://devto-photoapp-default-rtdb.firebaseio.com/posts/' + postId + '/.json'
+     fetch( url ,{
+         method: 'GET'
     })
     .then(function(plainText){
         let jsonResponsePromise = plainText.json()
@@ -215,9 +214,11 @@ const getPostById = (postId) =>{
     })
 }
 
+getPostById(postId)
+
 fetch(userurl)
-    .then((res) => {
-        return res.json()
+.then((res) => {
+    return res.json()
     })
     .then((res) => {
 
