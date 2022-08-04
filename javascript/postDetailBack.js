@@ -44,13 +44,13 @@
 // //         !Evaluar que contentWrapper no sea null
 // //         3.Inyectar el contenido de la variable template en el contenido innerHTML
 // //         */
-// //        let template = generatePostHtml(postDetail)
-// //        let contentWrapper = document.querySelector ('#post-detail')
-// //        if(contentWrapper!= null) {
-// //         contentWrapper.innerHTML = template
-// //        }
-// //     })
-// // }
+//        let template = generatePostHtml(postDetail)
+//        let contentWrapper = document.querySelector ('#post-detail')
+//        if(contentWrapper!= null) {
+//         contentWrapper.innerHTML = template
+//        }
+//     })
+// }
 
 // /*
 // 1.recibe el detalle del post como objeto
