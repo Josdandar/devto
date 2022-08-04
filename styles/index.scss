@@ -278,6 +278,7 @@ body {
 
 }
 
+
 .story-postdate-p1 {
     font-size: 12px;
 }
@@ -289,21 +290,43 @@ body {
 }
 .story-title-p1-1 {
     font-family: 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
     font-size: 30px;
     line-height: 37.5px;
     font-weight: 700;
+    &:hover{
+        
+    }
 }
 
 .story-title-p1 {
     font-family: 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
     font-size: 24px;
     line-height: 30px;
     font-weight: 700;
+    text-decoration-color: #404040!important;
 }
 
 .story-reference-p1 {
-    font-size: 13px;
-    line-height: 19.5px;
+    font-size: 14px;
+    line-height: 21px;
+    a{
+        color: #404040;
+        text-decoration: none;
+        &:hover{
+            color: #404040;
+        }
+    }
+}
+.post-tags{
+    &:hover{
+        color: #404040;
+        border: #BDBDBD solid 1px;
+        background-color: #f3f3f3;
+        border-radius: 5px;
+    }
+    padding: 2px;
 }
 
 .properties-icon-p1 {

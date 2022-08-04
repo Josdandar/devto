@@ -16,6 +16,9 @@ let postsMainCards2 = document.querySelector('#main_posts_cards2');
 const insertPost = (posts, arrKeys, userImg) => {
     // Insert first card (to display an img)
     let template = '';
+    let tagsArray = posts[0].postTags.join("\n");
+    let tagsArray2 = tagsArray.split("\n");
+    console.log(tagsArray2)
     template += `
     <a href="./postDetail.html?postId=${arrKeys[0]}" class="post_detail_id">
     <div class="ind_card border-card">
@@ -36,7 +39,15 @@ const insertPost = (posts, arrKeys, userImg) => {
         <li class="list-group-item story-text-p1">
             <div class="story-title-p1-1">${posts[0].postTitle}
             </div>
-            <div class="fw-light story-reference-p1">${posts[0].postTags}</div>
+            <div class="fw-light story-reference-p1">`
+            tagsArray2.forEach(cv => {
+                let cv2 = cv;
+                console.log(cv2)
+                template +=
+                `<a href="/search.html?searchTag=${cv}" class="post-tags">#${cv} </a>`
+            });
+            template +=
+            `</div>
         </li>
         <li class="list-group-item">
             <div class="card-bottom-p1">
@@ -47,7 +58,7 @@ const insertPost = (posts, arrKeys, userImg) => {
                         srcset=""> 0
                 </div>
                 <div class="bottom-right-p1">
-                    <span class="story-read-time-p1">${posts[0].postTimeToRead}min read</span><button type="button"
+                    <span class="story-read-time-p1">${posts[0].postTimeToRead} min read</span><button type="button"
                         class="btn-sm">Save</button>
                 </div>
             </div>
@@ -63,6 +74,9 @@ const insertPost = (posts, arrKeys, userImg) => {
     // Restart the template variable and insert the remaining post cards.
     template = '';
     for (post in posts) {
+        tagsArray = posts[post].postTags.join("\n");
+        tagsArray2 = tagsArray.split("\n");
+        
         template += `
         <a href="./postDetail.html?postId=${arrKeys[post]}" class="post_detail_id2">
         <div class="ind_card my-2 border-card">
@@ -82,7 +96,16 @@ const insertPost = (posts, arrKeys, userImg) => {
         <li class="list-group-item story-text-p1">
         <div class="fw-bold story-title-p1">${posts[post].postTitle}
         </div>
-        <div class="fw-light story-reference-p1">${posts[post].postTags}</div>
+        <div class="fw-light story-reference-p1">
+        `
+        tagsArray2.forEach(cv => {
+            let cv2 = cv;
+            console.log(cv2)
+            template +=
+            `<a href="/search.html?searchTag=${cv}">#${cv} </a>`
+        });
+        template +=
+        `
         </li>
         <li class="list-group-item">
         <div class="card-bottom-p1">
@@ -92,7 +115,7 @@ const insertPost = (posts, arrKeys, userImg) => {
                     <img src="/assets/images/coment.png" class="properties-icon-p1" alt="" srcset=""> 0
                 </div>
                 <div class="bottom-right-p1">
-                    <span class="story-read-time-p1">${posts[post].postTimeToRead}min read</span><button type="button"
+                    <span class="story-read-time-p1">${posts[post].postTimeToRead} min read</span><button type="button"
                         class="btn-sm">Save</button>
                 </div>
             </div>
@@ -127,9 +150,9 @@ fetch(urlPosts)
         return res.json();
     })
     .then((res) => {
+        console.log(res)
         let arr = Object.values(res);
         let arrKeys = Object.keys(res);
-
         fetch(urlUsers)
             .then((res) => {
                 return res.json()
