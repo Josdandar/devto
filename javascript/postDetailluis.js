@@ -1,5 +1,8 @@
-let posturl ='https://devto-photoapp-default-rtdb.firebaseio.com/posts/-N8RJPxsdXMuHVLLs-30.json';
-let userurl ='https://devto-photoapp-default-rtdb.firebaseio.com/users/-N8RJPww_niZjLYxXLB2.json';
+// let posturl ='https://devto-photoapp-default-rtdb.firebaseio.com/posts/-N8RJPxsdXMuHVLLs-30.json';
+// let userurl ='https://devto-photoapp-default-rtdb.firebaseio.com/users/-N8RJPww_niZjLYxXLB2.json';
+
+const urlParams = new URLSearchParams(window.location.search);
+const postId = urlParams.get('postId');
 
 let postsDetailMain = document.querySelector('#post-holder');
 let postsLeftAside = document.querySelector('#left-aside');
@@ -23,8 +26,8 @@ let postsLeftAside = document.querySelector('#left-aside');
         <div class="counter-container d-flex align-items-center justify-content-center">
                 <Span>${posts.postLikesCount}</Span>
         </div>
-    </div>    
-    <div class=" d-flex flex-lg-column col-2  col-lg-1 justify-content-between" id="icon-counter-container">    
+    </div>
+    <div class=" d-flex flex-lg-column col-2  col-lg-1 justify-content-between" id="icon-counter-container">
         <div class="icon-container">
             <input type="checkbox" id="aside-icon-checkboxunicorn" class="checkboxhider">
             <label for="aside-icon-checkboxunicorn" class="checkedlabel" id="checkboxheaartlabel">
@@ -36,8 +39,8 @@ let postsLeftAside = document.querySelector('#left-aside');
         <div class="counter-container d-flex align-items-center justify-content-center">
             <Span>${posts.postUnicornCount}</Span>
         </div>
-    </div>    
-    <div class=" d-flex flex-lg-column col-2 justify-content-between col-lg-1" id="icon-counter-container">     
+    </div>
+    <div class=" d-flex flex-lg-column col-2 justify-content-between col-lg-1" id="icon-counter-container">
         <div class="icon-container">
             <input type="checkbox" id="aside-icon-checkboxsave" class="checkboxhider">
             <label for="aside-icon-checkboxsave" class="checkedlabel" id="checkboxheaartlabel">
@@ -51,7 +54,7 @@ let postsLeftAside = document.querySelector('#left-aside');
         </div>
 
     </div>
-    <div class=" d-flex flex-lg-column col-2 justify-content-between col-lg-1" id="icon-counter-container"> 
+    <div class=" d-flex flex-lg-column col-2 justify-content-between col-lg-1" id="icon-counter-container">
         <div class="icon-container">
             <input type="checkbox" id="aside-icon-checkboxdots" class="checkboxhider">
             <label for="aside-icon-checkboxdots" class="checkedlabel">
@@ -72,7 +75,7 @@ let postsLeftAside = document.querySelector('#left-aside');
                 <div class="list-menu-icon-container">
 
                 </div>
-            </div> 
+            </div>
         </div>
     </div>
 
@@ -85,16 +88,14 @@ let postsLeftAside = document.querySelector('#left-aside');
     tagsArray.forEach(cv => {
         console.log(cv)
         tagstemplate+=`<a href="${cv}" class="card-link">#${cv}</a>`
-        
     });
-   
     template = `
   <div class="card">
     <img src="${posts.postImage}" class="card-img-top" alt="POSTIMAGE" style="height:30%">
     <div class="link-dev d-flex flex-row px-5" id="post_author_holder">
         <div class="flex position-relative image-title">
             <a href="https://dev.to/devteam">
-                <img class="image-dev" src="" class="radius-default align-middle" width="40" height="40" alt="The DEV Team p>" alt="">
+                <img class="image-dev" src="https://picsum.photos/40/40" class="radius-default align-middle" width="40" height="40" alt="The DEV Team p>" alt="">
             </a>
         </div>
         <div class="profile-name">
@@ -103,14 +104,12 @@ let postsLeftAside = document.querySelector('#left-aside');
     </div>
     <div class="card-title text-styles">
         <h1>${posts.postTitle}</h1>
-        
         ${tagstemplate}
     </div>
     <div class="card-text">
         <p>${posts.postBody}</p>
     </div>
     <div class="card mb-img">
-        
         <div class="card-body">
           <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--sn4XzJyl--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://pbs.twimg.com/profile_images/839643754126417920/6trsFcTQ_normal.jpg" alt="The Practical Dev profile image">
           <div class="twitter-access">
@@ -141,8 +140,7 @@ let postsLeftAside = document.querySelector('#left-aside');
         Happy branching :corazón:
         </strong>
     </div>
-    </div>`;         
-     
+    </div>`;
 
      postsDetailMain.innerHTML = template;
      postsLeftAside.innerHTML = templateleft;
@@ -151,11 +149,10 @@ let AuthorDetailMain = document.querySelector('#user-holder');
     const insertUser = (user) => {
         console.log()
          template = `
-         
          <div class="card my-3  rounded-3 "  id="right-aside-top-card">
          <div class="card-header-color rounded-top just" id="right-aside-card">
          -
-         </div> 
+         </div>
          <h5 class="card-header py-4">
          ${user.userNickname}
          </h5>
@@ -163,7 +160,7 @@ let AuthorDetailMain = document.querySelector('#user-holder');
              <div class="card-body d-flex flex-column justify-content-center ">
                  <a href="#" class="btn btn-primary my-2 fw-bold fs-5">
                      Follow
-                 </a>            
+                 </a>
                  <p class="card-text">
                  ${user.userDescription}
                  </p>
@@ -174,7 +171,7 @@ let AuthorDetailMain = document.querySelector('#user-holder');
          </div>
          <div class="card my-3  " id="right-aside-bottom-card">
          <div class="card-header py-3 fs-5 fw-bold">
-             More From  
+             More From
              <a class="text-decoration-none fw-bold fs-5" href="#Strapi">
              ${user.userNickname}
              </a>
@@ -211,24 +208,35 @@ let AuthorDetailMain = document.querySelector('#user-holder');
                  </a>
              </li>
          </ul>
-     </div>`;         
-         
-    
+     </div>`;
          AuthorDetailMain.innerHTML = template;
          return; }
 
 
-fetch(posturl)
-    .then((res) => {
-        return res.json()
-    })
-    .then((res) => {
+// fetch(posturl)
+//     .then((res) => {
+//         return res.json()
+//     })
+//     .then((res) => {
 
-        insertPost(res);
+//         insertPost(res);
+//     })
+//     .catch((error) => {
+//         console.log(error)
+//     })
+const getPostById = (postId) =>{
+    let url = 'https://devto-photoapp-default-rtdb.firebaseio.com/posts/' + postId + '/.json'
+    fetch( url ,{
+    method: 'GET'
     })
-    .catch((error) => {
-        console.log(error)
+    .then(function(plainText){
+        let jsonResponsePromise = plainText.json()
+        return jsonResponsePromise
     })
+    .then((postDetail) =>{
+        console.log(postDetail)
+    })
+}
 
 fetch(userurl)
     .then((res) => {
@@ -241,5 +249,3 @@ fetch(userurl)
     .catch((error) => {
         console.log(error)
     })
-
-    
