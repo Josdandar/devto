@@ -124,7 +124,7 @@ const insertPost = (posts, arrKeys, userImg) => {
         `
         tagsArray2.forEach(cv => {
             template +=
-                `<a href="/search.html?searchTag=${cv}">#${cv} </a>`
+                `<a href="/search.html?searchTag=${cv}" class="post-tags">#${cv} </a>`
         });
         template +=
             `
