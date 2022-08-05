@@ -5,6 +5,7 @@ body {
 
 .card-img-top{
   max-height: 325px;
+  max-width: 200px;
 }
 
 .card-title{
