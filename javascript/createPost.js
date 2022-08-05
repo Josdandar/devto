@@ -20,7 +20,7 @@ var input = document.querySelector('input[name=tags]'),
 tagify = new Tagify( input );
 
 const otherPost = {
-    postAuthor: "Luis Rodriguez",
+    postAuthor: "El Admin",
     postBody: "",
     postChangeDate: "",
     postCreationDate: "",
