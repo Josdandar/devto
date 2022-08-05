@@ -92,7 +92,7 @@ let postsLeftAside = document.querySelector('#left-aside');
     <img src="${posts.postImage}" class="card-img-top" alt="POSTIMAGE" style="height:30%">
     <div class="link-dev d-flex flex-row px-5" id="post_author_holder">
         <div class="btn-group" role="group" aria-label="Basic outlined example">
-            <button type="button" class="btn btn-outline-primary">Edit</button>
+            <a href="./editPost.html?postId="${postId}"><button type="button" class="btn btn-outline-primary">Edit</button></a>
             <button type="button" class="btn btn-outline-primary">Manage</button>
             <button type="button" class="btn btn-outline-primary">Stats</button>
         </div>
