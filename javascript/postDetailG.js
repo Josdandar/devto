@@ -1,4 +1,4 @@
-// let posturl ='https://devto-photoapp-default-rtdb.firebaseio.com/posts/-N8bOAEyt1gDoTKduz1p.json';
+// let posturl ='https://devto-photoapp-default-rtdb.firebaseio.com/posts/-N8f3toRvBtvgNHC7dJR.json';
 let userurl ='https://devto-photoapp-default-rtdb.firebaseio.com/users/-N8RJPww_niZjLYxXLB2.json';
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -91,13 +91,18 @@ let postsLeftAside = document.querySelector('#left-aside');
   <div class="card">
     <img src="${posts.postImage}" class="card-img-top" alt="POSTIMAGE" style="height:30%">
     <div class="link-dev d-flex flex-row px-5" id="post_author_holder">
+        <div class="btn-group" role="group" aria-label="Basic outlined example">
+            <a href="./editPost.html?postId="${postId}"><button type="button" class="btn btn-outline-primary">Edit</button></a>
+            <button type="button" class="btn btn-outline-primary">Manage</button>
+            <button type="button" class="btn btn-outline-primary">Stats</button>
+        </div>
         <div class="flex position-relative image-title">
             <a href="https://dev.to/devteam">
                 <img class="image-dev" src="https://picsum.photos/40/40" class="radius-default align-middle" width="40" height="40" alt="The DEV Team p>" alt="">
             </a>
         </div>
         <div class="profile-name">
-            <a href="https://dev.to/ben" class="name-profile fw-bold">Ben Halpern</a>
+            <a href="https://dev.to/ben" class="name-profile fw-bold">${userNickname}</a>
         </div>
     </div>
     <div class="card-title text-styles">
@@ -227,3 +232,6 @@ fetch(userurl)
     .catch((error) => {
         console.log(error)
     })
+
+    let searchClick = document.querySelector('.input-search');
+searchClick.addEventListener('search', () => { window.location.href = `/search.html?searchId=${searchText}` });
