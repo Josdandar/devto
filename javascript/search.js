@@ -11,7 +11,7 @@ let strToFilter= search
 searchBtnHolder.innerHTML =`<a href="http://127.0.0.1:5500/search.html?searchId=${search}" class="btn active" i aria-current="page">Posts</a>
 <a href="#" class="btn">Podcasts</a>
 <a href="#" class="btn">People</a>
-<a href="http://127.0.0.1:5500/search.html?searchTag=${search}" class="btn">Tags</a>
+<a href="/search.html?searchTag=${search}" class="btn">Tags</a>
 <a href="#" class="btn">Comments</a>
 <a href="#" class="btn">My posts only</a>`
 searchTitleHolder.innerHTML =`<b>Searsch results for ${strToFilter}</b>`;
@@ -84,10 +84,10 @@ const insertFilteredTag = (posts) => {
 let searchBtnHolder = document.querySelector('#btn_left_aside');
 let searchTitleHolder = document.querySelector('#search_title_holder');
 let strToFilter= search
-searchBtnHolder.innerHTML =`<a href="http://127.0.0.1:5500/search.html?searchId=${search}" class="btn" i aria-current="page">Posts</a>
+searchBtnHolder.innerHTML =`<a href="/search.html?searchId=${search}" class="btn" i aria-current="page">Posts</a>
 <a href="#" class="btn">Podcasts</a>
 <a href="#" class="btn">People</a>
-<a href="http://127.0.0.1:5500/search.html?searchTag=${search}" class="btn active">Tags</a>
+<a href="/search.html?searchTag=${search}" class="btn active">Tags</a>
 <a href="#" class="btn">Comments</a>
 <a href="#" class="btn">My posts only</a>`
 searchTitleHolder.innerHTML =`<b>Searsch results for ${search}</b>`;
