@@ -39,7 +39,7 @@ mainHolder.innerHTML =`
                         <line x1="12" y1="12" x2="12" y2="12.01"></line>
                         <line x1="16" y1="12" x2="16" y2="12.01"></line>
                      </svg></button>
-                     <button class="btn btn-danger outside-button" id="delte_btn">Delete</button>
+                     <button class="btn btn-danger outside-button" id="delete_btn">Delete</button>
                 </div>
               </div>
               <div class="col-3 d-none d-md-block" id="createpost_help">
@@ -93,11 +93,21 @@ fetch(url)
             let postTitle = document.querySelector('#input_post_title')
             let postBody = document.querySelector('#editor')
             let publishBtn = document.querySelector("#save_btn")
-            let deleteBTn = document.querySelector("#delete_btn")
+            let deleteBtn = document.querySelector("#delete_btn")
             saveImgUrl.addEventListener('click', () => {
               res.postImage = urlPostImg.value
             })
-            
+            deleteBtn.addEventListener('click', () => {
+              var result = confirm("Want to delete?");
+              if (result) {
+              console.log("delete")
+              let hRequest = new XMLHttpRequest()
+
+    hRequest.open("Delete", url, false);
+    hRequest.send(JSON.stringify(res));
+    window.location.href=`/index.html`;
+}
+              })
             publishBtn.addEventListener('click', () => {
             res.postImage = urlPostImg.value
             res.postTitle = postTitle.value
@@ -120,6 +130,7 @@ fetch(url)
     window.location.href=`/postDetail.html?postId=${myParam}`;
 
             })
+            
             })
             .catch((error) => {
                 console.log(error);
