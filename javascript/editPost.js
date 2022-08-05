@@ -127,7 +127,7 @@ fetch(url)
 
     hRequest.open("PATCH", url, false);
     hRequest.send(JSON.stringify(res));
-    window.location.href=`/postDetail.html?postId=${myParam}`;
+    window.location.href=`/index.html`;
 
             })
             
