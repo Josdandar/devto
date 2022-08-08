@@ -16,7 +16,7 @@ mainHolder.innerHTML =`
             <div class="row">
               <div class="card col-12 col-md-9" id="createpost_main">
                 <div class="input-group mb-3 pt-5">
-                    <button class="btn btn-outline-secondary" type="button" id="save_img_url">Guardar url cover
+                    <button class="btn btn-outline-secondary" type="button" id="save_img_url">Pega aqui tu url de cover
                     </button>
                     <input type="text" id="url_post_img" class="form-control" value ="${post.postImage}" placeholder="Paste here the url of your post cover" aria-label="Example text with button addon" aria-describedby="button-addon1">
                   </div>
@@ -30,7 +30,7 @@ mainHolder.innerHTML =`
                 <div id="editor">${post.postBody}
                 </div>
                   <div class="outside-buttons py-3">
-                    <button class=" btn btn-primary outside-button" id="save_btn">Edit</button>
+                    <button class=" btn btn-primary outside-button" id="save_btn">Save Edit</button>
                     <button class="btn btn-light outside-button">Save Draft</button>
                     <button class="btn btn-light outside-button"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-dots-circle-horizontal" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -94,7 +94,8 @@ fetch(url)
             let postBody = document.querySelector('#editor')
             let publishBtn = document.querySelector("#save_btn")
             let deleteBtn = document.querySelector("#delete_btn")
-            saveImgUrl.addEventListener('click', () => {
+            urlPostImg.addEventListener('input', () => {
+              console.log(urlPostImg.value)
               res.postImage = urlPostImg.value
             })
             deleteBtn.addEventListener('click', () => {

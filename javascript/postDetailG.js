@@ -3,6 +3,7 @@ let userurl ='https://devto-photoapp-default-rtdb.firebaseio.com/users/-N8RJPww_
 
 const urlParams = new URLSearchParams(window.location.search);
 const postId = urlParams.get('postId');
+console.log(postId)
 
 let postsDetailMain = document.querySelector('#post-holder');
 let postsLeftAside = document.querySelector('#left-aside');
@@ -88,21 +89,17 @@ let postsLeftAside = document.querySelector('#left-aside');
         tagstemplate+=`<a href="${cv}" class="card-link">#${cv}</a>`
     });
     template = `
-  <div class="card">
-    <img src="${posts.postImage}" class="card-img-top" alt="POSTIMAGE" style="height:30%">
-    <div class="link-dev d-flex flex-row px-5" id="post_author_holder">
-        <div class="btn-group" role="group" aria-label="Basic outlined example">
-            <a href="./editPost.html?postId="${postId}"><button type="button" class="btn btn-outline-primary">Edit</button></a>
-            <button type="button" class="btn btn-outline-primary">Manage</button>
-            <button type="button" class="btn btn-outline-primary">Stats</button>
-        </div>
+  <div class="card ">
+    <img src="${posts.postImage}" class="img-top " alt="POSTIMAGE" >
+    <div class="link-dev d-flex flex-row px-5" id="post_author_holder">        
         <div class="flex position-relative image-title">
             <a href="https://dev.to/devteam">
                 <img class="image-dev" src="https://picsum.photos/40/40" class="radius-default align-middle" width="40" height="40" alt="The DEV Team p>" alt="">
             </a>
         </div>
         <div class="profile-name">
-            <a href="https://dev.to/ben" class="name-profile fw-bold">${userNickname}</a>
+            <a href="https://dev.to/ben" class="name-profile fw-bold ms-3">${posts.postAuthor}
+            </a>
         </div>
     </div>
     <div class="card-title text-styles">
@@ -111,7 +108,9 @@ let postsLeftAside = document.querySelector('#left-aside');
     </div>
     <div class="card-text">
         <p>${posts.postBody}</p>
+        <a href="/editPost.html?postId=${postId}"><button type="button" class="btn btn-outline-primary">Edit Post</button></a>
     </div>
+    
 </div>
 `;
 
@@ -126,7 +125,7 @@ let AuthorDetailMain = document.querySelector('#user-holder');
          -
          </div>
          <h5 class="card-header py-4">
-         ${user.userNickname}
+        //*  ${user.userNickname}
          </h5>
          <img src="${user.userProfilepic}" alt="" class="position-absolute rounded-circle" id="profile-pic">
              <div class="card-body d-flex flex-column justify-content-center ">
@@ -145,7 +144,7 @@ let AuthorDetailMain = document.querySelector('#user-holder');
          <div class="card-header py-3 fs-5 fw-bold">
              More From
              <a class="text-decoration-none fw-bold fs-5" href="#Strapi">
-             ${user.userNickname}
+             //*${user.userNickname}
              </a>
          </div>
          <ul class="list-group list-group-flush fs-5">
@@ -227,11 +226,11 @@ fetch(userurl)
     })
     .then((res) => {
 
-        insertUser(res);
+        // insertUser(res);
     })
     .catch((error) => {
         console.log(error)
     })
 
-    let searchClick = document.querySelector('.input-search');
-searchClick.addEventListener('search', () => { window.location.href = `/search.html?searchId=${searchText}` });
+//     let searchClick = document.querySelector('.input-search');
+// searchClick.addEventListener('search', () => { window.location.href = `/search.html?searchId=${searchText}` });
