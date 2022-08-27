@@ -1,2 +1,2 @@
 # devto-js
-DevTo clone using Javascript 
+DevTo clone 
