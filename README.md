@@ -1,2 +1,2 @@
-# devto-js
+# devto
 DevTo clone 
