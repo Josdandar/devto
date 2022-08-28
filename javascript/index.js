@@ -44,14 +44,14 @@ let postsMainCards = document.querySelector('#main_posts_cards');
 let postsMainCards2 = document.querySelector('#main_posts_cards2');
 
 // Function for inserting post cards in the html
-const insertPost = (posts, arrKeys, userImg) => {
+const insertPost = (posts, userImg) => {
     // Insert first card (to display an img)
     let template = '';
     console.log("posts",posts)
-    let tagsArray = posts[0].postTags.join("\n");
-    let tagsArray2 = tagsArray.split("\n");
+   // let tagsArray = posts[0].postTags.join("\n");
+    //let tagsArray2 = tagsArray.split("\n");
     template += `
-    <a href="./postDetail.html?postId=${arrKeys[0]}" class="post_detail_id">
+    <a href="./postDetail.html?postId=${posts[0]._id}" class="post_detail_id">
     <div class="ind_card border-card">
         <ul class="list-group list-group-flush ">
         <img src="${posts[0].postImage}" class="card-img-top" "alt="...">
@@ -71,10 +71,10 @@ const insertPost = (posts, arrKeys, userImg) => {
             <div class="story-title-p1-1">${posts[0].postTitle}
             </div>
             <div class="fw-light story-reference-p1">`
-    tagsArray2.forEach(cv => {
-        template +=
-            `<a href="/search.html?searchTag=${cv}" class="post-tags">#${cv} </a>`
-    });
+    // tagsArray2.forEach(cv => {
+    //     template +=
+    //         `<a href="/search.html?searchTag=${cv}" class="post-tags">#${cv} </a>`
+    // });
     template +=
         `</div>
         </li>
@@ -97,7 +97,7 @@ const insertPost = (posts, arrKeys, userImg) => {
     `
     postsMainCards.innerHTML = template;
     // Remove the first element from all the arrays
-    posts.shift();
+   /** posts.shift();
     userImg.shift();
     arrKeys.shift();
     // Restart the template variable and insert the remaining post cards.
@@ -106,7 +106,7 @@ const insertPost = (posts, arrKeys, userImg) => {
         tagsArray = posts[post].postTags.join("\n");
         tagsArray2 = tagsArray.split("\n");
         template += `
-        <a href="./postDetail.html?postId=${arrKeys[post]}" class="post_detail_id2">
+        <a href="./postDetail.html?postId=${posts[0]._id}" class="post_detail_id2">
         <div class="ind_card my-2 border-card">
         <ul class="list-group list-group-flush">
         <li class="list-group-item user-p1">
@@ -152,10 +152,10 @@ const insertPost = (posts, arrKeys, userImg) => {
 
     };
 
+    */
 
     return;
 };
-
 // Define and store the input value on the 'Search' box
 let input = document.querySelector('.input-text');
 let findInput = document.querySelector('#find-input');
@@ -178,11 +178,9 @@ fetch(urlPosts)
         return res.json();
     })
     .then((res) => {
-        console.log("segunda respuesta",res)
-        let arr = Object.values(res.data.posts);
+        console.log("segunda respuesta",res.data.posts)
+        let arr = res.data.posts;
         console.log("arrValues",arr)
-        let arrKeys = Object.keys(res.data.posts);
-        console.log("arrKeys", arrKeys)
         fetch(urlUsers)
             .then((res) => {
                 return res.json()
@@ -192,9 +190,9 @@ fetch(urlPosts)
                 let arrUser = Object.values(res);
                 insUserProfile(arrUser);
                 let arrInv = arr.reverse();
-                let arrKeysInv = arrKeys.reverse();
+                console.log("arrInv",arrInv)
                 let arrUserInv = arrUser.reverse();
-                insertPost(arrInv, arrKeysInv, arrUserInv);
+                insertPost(arrInv, arrUserInv);
             })
             .catch((error) => {
                 console.log(error);
