@@ -12,9 +12,8 @@ let postTitle = document.querySelector('#input_post_title')
 let postBody = document.querySelector('#editor')
 let publishBtn = document.querySelector("#save_btn")
 
-
-  const URL = "http://localhost:8080/posts"
-  var input = document.querySelector('input[name=tags]'),
+const URL = "http://localhost:8080/posts"
+var input = document.querySelector('input[name=tags]'),
 tagify = new Tagify( input );
 
   publishBtn.addEventListener('click', async (event) => {

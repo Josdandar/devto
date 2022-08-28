@@ -39,7 +39,4 @@ button.addEventListener("click", async (event)  => {
     // Navegar
     window.location.href = "/login.html"
   }
-
-
-  
 })
