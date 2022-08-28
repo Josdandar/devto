@@ -32,9 +32,6 @@ tagify = new Tagify( input );
     postTags:postTags
   }
 
-    console.log(data)
-    console.log(data.postTags)
-
   const response = await fetch(URL, {
     method: "POST",
     headers: {
@@ -44,14 +41,15 @@ tagify = new Tagify( input );
   })
 
   const jsonData = await response.json()
-  console.log("jsonData : ", jsonData)
 
   // No fue exitoso, no estas autorizado
   if(!jsonData.success) {
     alert(jsonData.message)
   } else {
     // Navegar
+    alert("Post Succesfully created")
     window.location.href = "/index.html"
+    
   }
 
 

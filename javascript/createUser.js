@@ -37,6 +37,7 @@ button.addEventListener("click", async (event)  => {
     alert(jsonData.message)
   } else {
     // Navegar
+    alert("User Succesfully created")
     window.location.href = "/login.html"
   }
 })
