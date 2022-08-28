@@ -1,6 +1,9 @@
 // Define URLs for fetching the data
-let urlPosts = 'https://devto-photoapp-default-rtdb.firebaseio.com/posts.json';
+let urlPosts = 'http://localhost:8080/posts/';
 let urlUsers = 'https://devto-photoapp-default-rtdb.firebaseio.com/users.json';
+
+
+
 
 // Load user Profile data
 let userProfile = document.querySelector('#dropdown-user');
@@ -44,6 +47,7 @@ let postsMainCards2 = document.querySelector('#main_posts_cards2');
 const insertPost = (posts, arrKeys, userImg) => {
     // Insert first card (to display an img)
     let template = '';
+    console.log("posts",posts)
     let tagsArray = posts[0].postTags.join("\n");
     let tagsArray2 = tagsArray.split("\n");
     template += `
@@ -133,8 +137,8 @@ const insertPost = (posts, arrKeys, userImg) => {
         <div class="card-bottom-p1">
                 <div class="bottom-left-p1">
                     <img src="/assets/images/heart.png" class="properties-icon-p1" alt="" srcset="">
-                    ${posts[post].postLikesCount}
-                    <img src="/assets/images/coment.png" class="properties-icon-p1" alt="" srcset=""> 0
+                    ${posts[post].postLikesCount} Reactions
+                    <img src="/assets/images/coment.png" class="properties-icon-p1" alt="" srcset=""> 0 Comments
                 </div>
                 <div class="bottom-right-p1">
                     <span class="story-read-time-p1">${posts[post].postTimeToRead} min read</span><button type="button"
@@ -169,11 +173,16 @@ createPostBtn.addEventListener('click', () => { window.location.href = `/createP
 // Fetch the info from the db for both the Posts and the Users data, reverse the arrays and call the insertPost function.
 fetch(urlPosts)
     .then((res) => {
+        console.log("primera respuesta", res)
+        
         return res.json();
     })
     .then((res) => {
-        let arr = Object.values(res);
-        let arrKeys = Object.keys(res);
+        console.log("segunda respuesta",res)
+        let arr = Object.values(res.data.posts);
+        console.log("arrValues",arr)
+        let arrKeys = Object.keys(res.data.posts);
+        console.log("arrKeys", arrKeys)
         fetch(urlUsers)
             .then((res) => {
                 return res.json()
@@ -194,6 +203,8 @@ fetch(urlPosts)
     .catch((error) => {
         console.log(error);
     });
+
+
 
 
 
