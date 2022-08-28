@@ -1,4 +1,3 @@
-
 /*Buscando el id desde la barra del bom (se visualiza en barra de busqueda*/
 const urlParams = new URLSearchParams(window.location.search);
 const myParam = urlParams.get('postId');
