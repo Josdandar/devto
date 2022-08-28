@@ -1,123 +1,149 @@
-// let posturl ='https://devto-photoapp-default-rtdb.firebaseio.com/posts/-N8f3toRvBtvgNHC7dJR.json';
-let userurl ='https://devto-photoapp-default-rtdb.firebaseio.com/users/-N8RJPww_niZjLYxXLB2.json';
+// Selectores DOM
+const token = localStorage.getItem("token") || ""
+const payload = token.split(".")[1]
+const userid = JSON.parse(atob(payload)).id
 
+
+
+const postsDetailMain = document.querySelector('#post-holder');
+const postsLeftAside = document.querySelector('#left-aside');
+const createPostBtn = document.querySelector('.button-create-post');
+const mentorContainer = document.querySelector("#mentor-container");
+const AuthorDetailMain = document.querySelector('#user-holder');
+
+//!por el momento lo meto manual
 const urlParams = new URLSearchParams(window.location.search);
 const postId = urlParams.get('postId');
 console.log(postId)
 
-let postsDetailMain = document.querySelector('#post-holder');
-let postsLeftAside = document.querySelector('#left-aside');
+//postId= "630aee947f76158574da42f9"
+const postURL = `http://localhost:8080/posts/${postId}`
 
 
-    const insertPost = (posts) => {
 
-    templateleft=`
-<div class="d-flex flex-row col-8 flex-lg-column left-aside-icon-container  col-lg-auto justify-content-evenly py-2" id="icongroup-container">
+createPostBtn.addEventListener('click', () => { window.location.href = `/createPost.html` });
 
-    <div class=" d-flex flex-lg-column col-2  col-lg-1 justify-content-between" id="icon-counter-container">
-        <div class="icon-container" id="like-heart">
-            <input type="checkbox" id="aside-icon-checkboxheart" class="checkboxhider">
-            <label for="aside-icon-checkboxheart" class="checkedlabel" id="checkboxheaartlabel">
-              <img src="./assets/images/SVG/heart.png" alt="" class="aside-icon-default">
-              <img src="./assets/images/SVG/hearthover.png" alt="" class="aside-icon-hover">
-              <img src="./assets/images/SVG/heartcheked.png" alt="" class="aside-icon-cheked" id="heart">
-            </label>
-        </div>
-        <div class="counter-container d-flex align-items-center justify-content-center">
-                <Span>${posts.postLikesCount}</Span>
-        </div>
-    </div>
-    <div class=" d-flex flex-lg-column col-2  col-lg-1 justify-content-between" id="icon-counter-container">
-        <div class="icon-container" id="unicorn-click">
-            <input type="checkbox" id="aside-icon-checkboxunicorn" class="checkboxhider">
-            <label for="aside-icon-checkboxunicorn" class="checkedlabel" id="checkboxheaartlabel">
-              <img src="./assets/images/SVG/unicorn.png" alt="" class="aside-icon-default">
-              <img src="./assets/images/SVG/unicornhover.png" alt="" class="aside-icon-hover">
-              <img src="./assets/images/SVG/unicorncheked.png" alt="" class="aside-icon-cheked" id="unicorn">
-            </label>
-        </div>
-        <div class="counter-container d-flex align-items-center justify-content-center">
-            <Span>${posts.postUnicornCount}</Span>
-        </div>
-    </div>
-    <div class=" d-flex flex-lg-column col-2 justify-content-between col-lg-1" id="icon-counter-container">
-        <div class="icon-container" id="save-flag">
-            <input type="checkbox" id="aside-icon-checkboxsave" class="checkboxhider">
-            <label for="aside-icon-checkboxsave" class="checkedlabel" id="checkboxheaartlabel">
-              <img src="./assets/images/SVG/save.png" alt="" class="aside-icon-default">
-              <img src="./assets/images/SVG/savehover.png" alt="" class="aside-icon-hover">
-              <img src="./assets/images/SVG/savercheked.png" alt="" class="aside-icon-cheked" id="save">
-            </label>
-        </div>
-        <div class="counter-container d-flex align-items-center justify-content-center">
-            <Span>${posts.postSavedCount}</Span>
-        </div>
+addEventListener("DOMContentLoaded", async (e) => {
+  e.preventDefault()
+  console.log("traer info")
+  
+  const response = await fetch(`${postURL}`, {
+    method: "GET",
+    headers: {
+      "Authorization": `Bearer ${token}`
+    }
+  })
+  const jsonData = await response.json()
+  console.log(jsonData)
+  posts=jsonData.data.post
+  templateleft=`
+  <div class="d-flex flex-row col-8 flex-lg-column left-aside-icon-container  col-lg-auto justify-content-evenly py-2" id="icongroup-container">
+  
+      <div class=" d-flex flex-lg-column col-2  col-lg-1 justify-content-between" id="icon-counter-container">
+          <div class="icon-container" id="like-heart">
+              <input type="checkbox" id="aside-icon-checkboxheart" class="checkboxhider">
+              <label for="aside-icon-checkboxheart" class="checkedlabel" id="checkboxheaartlabel">
+                <img src="./assets/images/SVG/heart.png" alt="" class="aside-icon-default">
+                <img src="./assets/images/SVG/hearthover.png" alt="" class="aside-icon-hover">
+                <img src="./assets/images/SVG/heartcheked.png" alt="" class="aside-icon-cheked" id="heart">
+              </label>
+          </div>
+          <div class="counter-container d-flex align-items-center justify-content-center">
+                  <Span>${posts.postLikesCount}</Span>
+          </div>
+      </div>
+      <div class=" d-flex flex-lg-column col-2  col-lg-1 justify-content-between" id="icon-counter-container">
+          <div class="icon-container" id="unicorn-click">
+              <input type="checkbox" id="aside-icon-checkboxunicorn" class="checkboxhider">
+              <label for="aside-icon-checkboxunicorn" class="checkedlabel" id="checkboxheaartlabel">
+                <img src="./assets/images/SVG/unicorn.png" alt="" class="aside-icon-default">
+                <img src="./assets/images/SVG/unicornhover.png" alt="" class="aside-icon-hover">
+                <img src="./assets/images/SVG/unicorncheked.png" alt="" class="aside-icon-cheked" id="unicorn">
+              </label>
+          </div>
+          <div class="counter-container d-flex align-items-center justify-content-center">
+              <Span>${posts.postUnicornCount}</Span>
+          </div>
+      </div>
+      <div class=" d-flex flex-lg-column col-2 justify-content-between col-lg-1" id="icon-counter-container">
+          <div class="icon-container" id="save-flag">
+              <input type="checkbox" id="aside-icon-checkboxsave" class="checkboxhider">
+              <label for="aside-icon-checkboxsave" class="checkedlabel" id="checkboxheaartlabel">
+                <img src="./assets/images/SVG/save.png" alt="" class="aside-icon-default">
+                <img src="./assets/images/SVG/savehover.png" alt="" class="aside-icon-hover">
+                <img src="./assets/images/SVG/savercheked.png" alt="" class="aside-icon-cheked" id="save">
+              </label>
+          </div>
+          <div class="counter-container d-flex align-items-center justify-content-center">
+              <Span>${posts.postSavedCount}</Span>
+          </div>
+  
+      </div>
+      <div class=" d-flex flex-lg-column col-2 justify-content-between col-lg-1" id="icon-counter-container">
+          <div class="icon-container">
+              <input type="checkbox" id="aside-icon-checkboxdots" class="checkboxhider">
+              <label for="aside-icon-checkboxdots" class="checkedlabel">
+              <img src="./assets/images/SVG/dots.png" alt="" class="aside-icon-default">
+              <img src="./assets/images/SVG/dotshover2.png" alt="" class="aside-icon-hover">
+              <img src="./assets/images/SVG/dotshover2.png" alt="" class="aside-icon-cheked" id="dots">
+              <div class="pop-menu-container">
+                  <ul class="menu-list p-1 m-0 d-flex flex-column" >
+                      <li id="list-header"><a class="dropdown-item" href="#"><b>Copylink</b></a></li>
+                      <li id="list-item"><a class="dropdown-item" href="#">Share to Twitter</a></li>
+                      <li id="list-item"><a class="dropdown-item" href="#">Share to LinkedIn</a></li>
+                      <li id="list-item"><a class="dropdown-item" href="#">Share to Reddit</a></li>
+                      <li id="list-item"><a class="dropdown-item" href="#">Share to Hacker News</a></li>
+                      <li id="list-item"><a class="dropdown-item" href="#">Share to Facebook</a></li>
+                      <li id="list-item"><a class="dropdown-item" href="#">Share Post via...</a></li>
+                      <li id="list-item"><a class="dropdown-item" href="#" >Report Abuse</a></li>
+                  </ul>
+                  <div class="list-menu-icon-container">
+  
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  `
+      let tagsArray2 = posts.postTags.join(' ')
+      let tagsArray = tagsArray2.split(" ");
+      console.log(tagsArray)
+      let tagstemplate=``;
+      tagsArray.forEach(cv => {
+          console.log(cv)
+          tagstemplate+=`<a href="${cv}" class="card-link">#${cv}</a>`
+      });
+      template = `
+    <div class="card ">
+      <img src="${posts.postImage}" class="img-top " alt="POSTIMAGE" >
+      <div class="link-dev d-flex flex-row px-5" id="post_author_holder">        
+          <div class="flex position-relative image-title">
+              <a href="https://dev.to/devteam">
+                  <img class="image-dev" src="https://picsum.photos/40/40" class="radius-default align-middle" width="40" height="40" alt="The DEV Team p>" alt="">
+              </a>
+          </div>
+          <div class="profile-name">
+              <a href="https://dev.to/ben" class="name-profile fw-bold ms-3">${posts.postAuthor}
+              </a>
+          </div>
+      </div>
+      <div class="card-title text-styles">
+          <h1>${posts.postTitle}</h1>
+          ${tagstemplate}
+      </div>
+      <div class="card-text">
+          <p>${posts.postBody}</p>
+          <a href="/editPost.html?postId=${postId}"><button type="button" class="btn btn-outline-primary">Edit Post</button></a>
+      </div>
+      
+  </div>
+  `;
+       postsDetailMain.innerHTML = template;
+       postsLeftAside.innerHTML = templateleft;
+})
 
-    </div>
-    <div class=" d-flex flex-lg-column col-2 justify-content-between col-lg-1" id="icon-counter-container">
-        <div class="icon-container">
-            <input type="checkbox" id="aside-icon-checkboxdots" class="checkboxhider">
-            <label for="aside-icon-checkboxdots" class="checkedlabel">
-            <img src="./assets/images/SVG/dots.png" alt="" class="aside-icon-default">
-            <img src="./assets/images/SVG/dotshover2.png" alt="" class="aside-icon-hover">
-            <img src="./assets/images/SVG/dotshover2.png" alt="" class="aside-icon-cheked" id="dots">
-            <div class="pop-menu-container">
-                <ul class="menu-list p-1 m-0 d-flex flex-column" >
-                    <li id="list-header"><a class="dropdown-item" href="#"><b>Copylink</b></a></li>
-                    <li id="list-item"><a class="dropdown-item" href="#">Share to Twitter</a></li>
-                    <li id="list-item"><a class="dropdown-item" href="#">Share to LinkedIn</a></li>
-                    <li id="list-item"><a class="dropdown-item" href="#">Share to Reddit</a></li>
-                    <li id="list-item"><a class="dropdown-item" href="#">Share to Hacker News</a></li>
-                    <li id="list-item"><a class="dropdown-item" href="#">Share to Facebook</a></li>
-                    <li id="list-item"><a class="dropdown-item" href="#">Share Post via...</a></li>
-                    <li id="list-item"><a class="dropdown-item" href="#" >Report Abuse</a></li>
-                </ul>
-                <div class="list-menu-icon-container">
+//!de aqyu para abajo no esta terminado
 
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-`
-    let tagsArray2 = posts.postTags.join(' ')
-    let tagsArray = tagsArray2.split(" ");
-    console.log(tagsArray)
-    let tagstemplate=``;
-    tagsArray.forEach(cv => {
-        console.log(cv)
-        tagstemplate+=`<a href="${cv}" class="card-link">#${cv}</a>`
-    });
-    template = `
-  <div class="card ">
-    <img src="${posts.postImage}" class="img-top " alt="POSTIMAGE" >
-    <div class="link-dev d-flex flex-row px-5" id="post_author_holder">        
-        <div class="flex position-relative image-title">
-            <a href="https://dev.to/devteam">
-                <img class="image-dev" src="https://picsum.photos/40/40" class="radius-default align-middle" width="40" height="40" alt="The DEV Team p>" alt="">
-            </a>
-        </div>
-        <div class="profile-name">
-            <a href="https://dev.to/ben" class="name-profile fw-bold ms-3">${posts.postAuthor}
-            </a>
-        </div>
-    </div>
-    <div class="card-title text-styles">
-        <h1>${posts.postTitle}</h1>
-        ${tagstemplate}
-    </div>
-    <div class="card-text">
-        <p>${posts.postBody}</p>
-        <a href="/editPost.html?postId=${postId}"><button type="button" class="btn btn-outline-primary">Edit Post</button></a>
-    </div>
-    
-</div>
-`;
-
-     postsDetailMain.innerHTML = template;
-     postsLeftAside.innerHTML = templateleft;
-     return; }
-let AuthorDetailMain = document.querySelector('#user-holder');
     const insertUser = (user) => {
          template = `
         <div class="card my-3  rounded-3 "  id="right-aside-top-card">
@@ -204,33 +230,33 @@ let AuthorDetailMain = document.querySelector('#user-holder');
  6. inyectar el detalle del post obtenido por el Id en el html
   */
 
- const getPostById = (postId) =>{
-     let url = 'https://devto-photoapp-default-rtdb.firebaseio.com/posts/' + postId + '/.json'
-     fetch( url ,{
-         method: 'GET'
-    })
-    .then(function(plainText){
-        let jsonResponsePromise = plainText.json()
-        return jsonResponsePromise
-    })
-    .then((postDetail) =>{
-        insertPost(postDetail)
-    })
-}
+//  const getPostById = (postId) =>{
+//      let url = 'https://devto-photoapp-default-rtdb.firebaseio.com/posts/' + postId + '/.json'
+//      fetch( url ,{
+//          method: 'GET'
+//     })
+//     .then(function(plainText){
+//         let jsonResponsePromise = plainText.json()
+//         return jsonResponsePromise
+//     })
+//     .then((postDetail) =>{
+//         insertPost(postDetail)
+//     })
+// }
 
-getPostById(postId)
+// getPostById(postId)
 
-fetch(userurl)
-.then((res) => {
-    return res.json()
-    })
-    .then((res) => {
+// fetch(userurl)
+// .then((res) => {
+//     return res.json()
+//     })
+//     .then((res) => {
 
-        // insertUser(res);
-    })
-    .catch((error) => {
-        console.log(error)
-    })
+//         // insertUser(res);
+//     })
+//     .catch((error) => {
+//         console.log(error)
+//     })
 
 //     let searchClick = document.querySelector('.input-search');
 // searchClick.addEventListener('search', () => { window.location.href = `/search.html?searchId=${searchText}` });
