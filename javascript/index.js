@@ -1,6 +1,6 @@
 // Define URLs for fetching the data
 let urlPosts = 'http://localhost:8080/posts/';
-
+let urlUsers = 'https://devto-photoapp-default-rtdb.firebaseio.com/users.json';
 
 
 
@@ -183,8 +183,6 @@ fetch(urlPosts)
         console.log("arrValues",arr)
         let arrKeys = Object.keys(res.data.posts);
         console.log("arrKeys", arrKeys)
-        let urlUsers = `http://localhost:8080/${arr.data.AuthorId}`;
-        console.log(urlUsers)
         fetch(urlUsers)
             .then((res) => {
                 return res.json()
