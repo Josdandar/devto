@@ -1,8 +1,9 @@
 // Selectores DOM
-const token = localStorage.getItem("token") || ""
-const payload = token.split(".")[1]
-const userid = JSON.parse(atob(payload)).id
-
+ const token = localStorage.getItem("token") || ""
+ if(token){
+ const payload = token.split(".")[1]
+ const userid = JSON.parse(atob(payload)).id
+ }
 
 
 const postsDetailMain = document.querySelector('#post-holder');
@@ -28,10 +29,7 @@ addEventListener("DOMContentLoaded", async (e) => {
   console.log("traer info")
   
   const response = await fetch(`${postURL}`, {
-    method: "GET",
-    headers: {
-      "Authorization": `Bearer ${token}`
-    }
+    method: "GET"
   })
   const jsonData = await response.json()
   console.log(jsonData)
