@@ -10,8 +10,6 @@ const URL = "http://localhost:8080/auth"
 button.addEventListener("click", async (event)  => {
   event.preventDefault()
 
-  console.log("email :", userEmailInput.value)
-  console.log("password :", passwordInput.value)
 
   const data = {
     email: userEmailInput.value,
