@@ -1,11 +1,22 @@
+const token = localStorage.getItem("token") || ""
+const payload = token.split(".")[1]
+const userid = JSON.parse(atob(payload)).id
+
 /*Buscando el id desde la barra del bom (se visualiza en barra de busqueda*/
+
+
+
 const urlParams = new URLSearchParams(window.location.search);
-const myParam = urlParams.get('postId');
+const postId = urlParams.get('postId');
+console.log(postId)
+
+
+const postURL = `http://localhost:8080/posts/${postId}`
 /*Construir una direccion para hacer fetch a partir de la informacion recibida */
 /* https://devto-photoapp-default-rtdb.firebaseio.com/posts/-N8RJQq85IQWKOOw6R1j.json formato al que se le hara fetch*/
 // https://devto-photoapp-default-rtdb.firebaseio.com/posts/${myParam}.json
 // let url = `https://devto-photoapp-default-rtdb.firebaseio.com/posts/-N8RJQq85IQWKOOw6R1j.json`
-let url = `https://devto-photoapp-default-rtdb.firebaseio.com/posts/${myParam}.json`
+let url = `http://localhost:8080/posts/${postId}`
 //! HTML EDIT POST
 const insertPostToEdit = (post) => {
 let mainHolder = document.querySelector("#main_holder")
@@ -74,9 +85,9 @@ fetch(url)
                 return res.json()
             })
             .then((res) => {
-                console.log(res)
+                console.log("res:",res.data.post)
                 /*Aqui va la funcion del template*/
-                insertPostToEdit(res)
+                insertPostToEdit(res.data.post)
                 var quill = new Quill('#editor', {
                   theme: 'snow',
                   placeholder:'Write your post content here....\n'
