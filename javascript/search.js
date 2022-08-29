@@ -1,4 +1,4 @@
-let url ='https://devto-photoapp-default-rtdb.firebaseio.com/posts.json';
+let url ="http://localhost:8080/posts/";
 
 let params = new URLSearchParams(window.location.search)
 
@@ -8,13 +8,13 @@ const insertFilteredPost = (posts) => {
 let searchBtnHolder = document.querySelector('#btn_left_aside');
 let searchTitleHolder = document.querySelector('#search_title_holder');
 let strToFilter= search
-searchBtnHolder.innerHTML =`<a href="http://127.0.0.1:5500/search.html?searchId=${search}" class="btn active" i aria-current="page">Posts</a>
+searchBtnHolder.innerHTML =`<a href="/search.html?searchId=${search}" class="btn active" i aria-current="page">Posts</a>
 <a href="#" class="btn">Podcasts</a>
 <a href="#" class="btn">People</a>
 <a href="/search.html?searchTag=${search}" class="btn">Tags</a>
 <a href="#" class="btn">Comments</a>
 <a href="#" class="btn">My posts only</a>`
-searchTitleHolder.innerHTML =`<b>Searsch results for ${strToFilter}</b>`;
+searchTitleHolder.innerHTML =`<b>Search results for ${strToFilter}</b>`;
 
 let strLower = strToFilter.toLowerCase()
 
@@ -212,14 +212,16 @@ fetch(url)
         return res.json()
     })
     .then((res) => {
+        resAfter = res.data.posts
         if (params.has("searchTag")) {
-            insertFilteredTag(res);
+
+            insertFilteredTag(resAfter);
         }
         else if (params.has("searchUser")) {
-            insertFilteredUser(res);
+            insertFilteredUser(resAfter);
         }
         else
-            insertFilteredPost(res);
+            insertFilteredPost(resAfter);
 
         
     })
