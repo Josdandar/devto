@@ -12,12 +12,10 @@ console.log(postId)
 
 
 const postURL = `http://localhost:8080/posts/${postId}`
-/*Construir una direccion para hacer fetch a partir de la informacion recibida */
-/* https://devto-photoapp-default-rtdb.firebaseio.com/posts/-N8RJQq85IQWKOOw6R1j.json formato al que se le hara fetch*/
-// https://devto-photoapp-default-rtdb.firebaseio.com/posts/${myParam}.json
-// let url = `https://devto-photoapp-default-rtdb.firebaseio.com/posts/-N8RJQq85IQWKOOw6R1j.json`
 let url = `http://localhost:8080/posts/${postId}`
-//! HTML EDIT POST
+
+
+//! GET POST DONE
 const insertPostToEdit = (post) => {
 let mainHolder = document.querySelector("#main_holder")
 console.log(post)
@@ -98,27 +96,30 @@ fetch(url)
                   let tagValue = document.querySelector("#tag_value_holder")
                   tagValue.value = res.postTags
                 }
-                let urlPostImg = document.querySelector('#url_post_img')
+
+            let urlPostImg = document.querySelector('#url_post_img')
             let saveImgUrl = document.querySelector('#save_img_url')
             let postTitle = document.querySelector('#input_post_title')
             let postBody = document.querySelector('#editor')
             let publishBtn = document.querySelector("#save_btn")
             let deleteBtn = document.querySelector("#delete_btn")
-            urlPostImg.addEventListener('input', () => {
-              console.log(urlPostImg.value)
-              res.postImage = urlPostImg.value
-            })
+
+            //!DELETE POST DONE
             deleteBtn.addEventListener('click', () => {
               var result = confirm("Want to delete?");
               if (result) {
               console.log("delete")
-              let hRequest = new XMLHttpRequest()
-
-    hRequest.open("Delete", url, false);
-    hRequest.send(JSON.stringify(res));
-    window.location.href=`/index.html`;
-}
+              const response =  fetch(`${postURL}`, {
+                method: "DELETE",
+                headers: {
+                  "Authorization": `Bearer ${token}`
+                }
               })
+              window.location.href=`/index.html`;
+            }
+              })
+
+
             publishBtn.addEventListener('click', () => {
             res.postImage = urlPostImg.value
             res.postTitle = postTitle.value
