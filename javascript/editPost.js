@@ -169,4 +169,5 @@ fetch(url)
             })
             .catch((error) => {
               alert(error.message)
+              window.location.href = "/index.html"
             })
