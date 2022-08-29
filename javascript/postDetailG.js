@@ -1,8 +1,9 @@
 // Selectores DOM
  const token = localStorage.getItem("token") || ""
+ let userid="";
  if(token){
- const payload = token.split(".")[1]
- const userid = JSON.parse(atob(payload)).id
+ const payload = token.split(".")[1];
+ userid = JSON.parse(atob(payload)).id
  }
 
 
@@ -11,11 +12,13 @@ const postsLeftAside = document.querySelector('#left-aside');
 const createPostBtn = document.querySelector('.button-create-post');
 const mentorContainer = document.querySelector("#mentor-container");
 const AuthorDetailMain = document.querySelector('#user-holder');
+const postOwner= false;
+
+
 
 //!por el momento lo meto manual
 const urlParams = new URLSearchParams(window.location.search);
 const postId = urlParams.get('postId');
-console.log(postId)
 
 //postId= "630aee947f76158574da42f9"
 const postURL = `http://localhost:8080/posts/${postId}`
@@ -34,6 +37,12 @@ addEventListener("DOMContentLoaded", async (e) => {
   const jsonData = await response.json()
   console.log(jsonData)
   posts=jsonData.data.post
+
+  var editOwner = "invisible";
+  if (posts.postAuthorId===userid){
+    editOwner="" 
+  }
+
   templateleft=`
   <div class="d-flex flex-row col-8 flex-lg-column left-aside-icon-container  col-lg-auto justify-content-evenly py-2" id="icongroup-container">
   
@@ -131,7 +140,7 @@ addEventListener("DOMContentLoaded", async (e) => {
       </div>
       <div class="card-text">
           <p>${posts.postBody}</p>
-          <a href="/editPost.html?postId=${postId}"><button type="button" class="btn btn-outline-primary">Edit Post</button></a>
+          <a href="/editPost.html?postId=${postId}"><button type="button" class="btn btn-outline-primary ${editOwner}">Edit Post</button></a>
       </div>
       
   </div>
