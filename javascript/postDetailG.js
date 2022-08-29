@@ -15,7 +15,6 @@ const AuthorDetailMain = document.querySelector('#user-holder');
 const postOwner= false;
 
 
-
 //!por el momento lo meto manual
 const urlParams = new URLSearchParams(window.location.search);
 const postId = urlParams.get('postId');
@@ -29,13 +28,13 @@ createPostBtn.addEventListener('click', () => { window.location.href = `/createP
 
 addEventListener("DOMContentLoaded", async (e) => {
   e.preventDefault()
-  console.log("traer info")
+
   
   const response = await fetch(`${postURL}`, {
     method: "GET"
   })
   const jsonData = await response.json()
-  console.log(jsonData)
+
   posts=jsonData.data.post
 
   var editOwner = "invisible";
@@ -114,10 +113,8 @@ addEventListener("DOMContentLoaded", async (e) => {
   `
       let tagsArray2 = posts.postTags.join(' ')
       let tagsArray = tagsArray2.split(" ");
-      console.log(tagsArray)
       let tagstemplate=``;
       tagsArray.forEach(cv => {
-          console.log(cv)
           tagstemplate+=`<a href="${cv}" class="card-link">#${cv}</a>`
       });
       template = `
@@ -216,54 +213,3 @@ addEventListener("DOMContentLoaded", async (e) => {
          AuthorDetailMain.innerHTML = template;
          return; }
 
-
-// fetch(posturl)
-//     .then((res) => {
-//         return res.json()
-//     })
-//     .then((res) => {
-//         console.log(res)
-//         insertPost(res,);
-//     })
-//     .catch((error) => {
-//         console.log(error)
-//     })
-/*
- 1. crear funcion que reciba el postId
- 2. construir el url con el postId
- 3. invocar el metodo fetch para llamar el servidor
- 4. convertir la respuesta del fetch a json
- 5. leer el objeto de tipo json con la información del post
- 6. inyectar el detalle del post obtenido por el Id en el html
-  */
-
-//  const getPostById = (postId) =>{
-//      let url = 'https://devto-photoapp-default-rtdb.firebaseio.com/posts/' + postId + '/.json'
-//      fetch( url ,{
-//          method: 'GET'
-//     })
-//     .then(function(plainText){
-//         let jsonResponsePromise = plainText.json()
-//         return jsonResponsePromise
-//     })
-//     .then((postDetail) =>{
-//         insertPost(postDetail)
-//     })
-// }
-
-// getPostById(postId)
-
-// fetch(userurl)
-// .then((res) => {
-//     return res.json()
-//     })
-//     .then((res) => {
-
-//         // insertUser(res);
-//     })
-//     .catch((error) => {
-//         console.log(error)
-//     })
-
-//     let searchClick = document.querySelector('.input-search');
-// searchClick.addEventListener('search', () => { window.location.href = `/search.html?searchId=${searchText}` });

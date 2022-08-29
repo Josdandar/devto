@@ -73,7 +73,9 @@ footer a {
   box-shadow: 0px -2px 8px #888888;
   background-color: #F5F5F5 !important;
 }
-
+#maincontainer{
+  padding-top: 70px;
+}
 /*aqui se pega la version anterior-----------------------------------*/
 @media only screen and (min-width: 992px) {
   .sticky-property-right-aside {
