@@ -8,8 +8,6 @@ const userid = JSON.parse(atob(payload)).id
 
 const urlParams = new URLSearchParams(window.location.search);
 const postId = urlParams.get('postId');
-console.log(postId)
-
 
 const postURL = `http://localhost:8080/posts/${postId}`
 let url = `http://localhost:8080/posts/${postId}`
@@ -18,7 +16,6 @@ let url = `http://localhost:8080/posts/${postId}`
 //! GET POST DONE
 const insertPostToEdit = (post) => {
 let mainHolder = document.querySelector("#main_holder")
-console.log(post)
 mainHolder.innerHTML =`
  <div class="container">
             <div class="row">
@@ -83,7 +80,6 @@ fetch(url)
                 return res.json()
             })
             .then((res) => {
-                console.log("res:",res.data.post)
                 /*Aqui va la funcion del template*/
                 insertPostToEdit(res.data.post)
                 var quill = new Quill('#editor', {
@@ -105,45 +101,72 @@ fetch(url)
             let deleteBtn = document.querySelector("#delete_btn")
 
             //!DELETE POST DONE
-            deleteBtn.addEventListener('click', () => {
+            deleteBtn.addEventListener('click', async (response) => {
               var result = confirm("Want to delete?");
               if (result) {
-              console.log("delete")
-              const response =  fetch(`${postURL}`, {
+                const response =  await fetch(`${postURL}`, {
                 method: "DELETE",
                 headers: {
                   "Authorization": `Bearer ${token}`
                 }
-              })
-              window.location.href=`/index.html`;
-            }
-              })
-
-
-            publishBtn.addEventListener('click', () => {
-            res.postImage = urlPostImg.value
-            res.postTitle = postTitle.value
-            res.postBody = quill.root.innerHTML;
-            res.postTimeToRead = Math.ceil(quill.getText().length/1500);
-            const d = new Date();
-            d.getTime();
-            res.postChangeDate = d;
-            res.postTags=[];
-            console.log(res)
-            JSON.parse((input.value)).forEach(cv => {
-              console.log(cv.value)
-              res.postTags.push(cv.value)
-            });
-
-            let hRequest = new XMLHttpRequest()
-
-    hRequest.open("PATCH", url, false);
-    hRequest.send(JSON.stringify(res));
-    window.location.href=`/index.html`;
-
+                }) 
+              const jsonData = await response.json()
+              // No fue exitoso, no estas autorizado
+              if(!jsonData.success) {
+                alert(jsonData.error)
+              }
+              else {
+                // Navegar
+                alert("Post Succesfully deleted")
+                window.location.href = "/index.html"
+              } 
+              }
             })
-            
+
+            publishBtn.addEventListener('click', async (event) => {
+              var result = confirm("Want to edit?");
+              if (result) {
+
+                event.preventDefault()
+                postTags=[],
+                JSON.parse((input.value)).forEach(cv => {
+                postTags.push(cv.value)
+                });
+
+                const data ={
+                  postImage : urlPostImg.value,
+                  postTitle : postTitle.value,
+                  postBody :quill.root.innerHTML,
+                  postTimeToRead : Math.ceil(quill.getText().length/1500),
+                  postTags:postTags
+
+                }
+                console.log("data:",data)
+
+                
+
+                const response =  await fetch(postURL, {
+                method: "PATCH",
+                headers: {
+                  "Content-Type": "application/json",
+                  "Authorization": `Bearer ${token}`
+                },
+                body: JSON.stringify(data)
+              })
+                
+              const jsonData = await response.json()
+              // No fue exitoso, no estas autorizado
+              if(!jsonData.success) {
+                alert(jsonData.error)
+              }
+              else {
+                // Navegar
+                alert("Post Succesfully edited")
+                window.location.href = "/index.html"
+              } 
+              }
+            })
             })
             .catch((error) => {
-                console.log(error);
+              alert(error.message)
             })
