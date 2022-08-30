@@ -134,9 +134,7 @@ footer a {
   display: none;
 }
 
-.checkboxhider:checked ~ .checkedlabel > {
-  /*revisar que funcione bien------------------*/
-}
+
 .checkboxhider:checked ~ .checkedlabel > .aside-icon-hover, .checkboxhider:checked ~ .checkedlabel > .aside-icon-default {
   display: none;
 }

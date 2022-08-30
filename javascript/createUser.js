@@ -8,11 +8,28 @@ const userLastnameInput = document.querySelector("#userLastname")
 const userNameInput = document.querySelector("#userName")
 const passwordInput = document.querySelector("#password")
 
+function isEmailValid(email) {
+  const emailRegexp = new RegExp(
+    /^[a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1}([a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1})*[a-zA-Z0-9]@[a-zA-Z0-9][-\.]{0,1}([a-zA-Z][-\.]{0,1})*[a-zA-Z0-9]\.[a-zA-Z0-9]{1,}([\.\-]{0,1}[a-zA-Z]){0,}[a-zA-Z0-9]{0,}$/i
+  )
+  return emailRegexp.test(email)
+}
+
 // Constants
 const URL = "http://localhost:8080/users"
 // OnClick
 button.addEventListener("click", async (event)  => {
   event.preventDefault()
+ 
+  if(userEmailInput.value=="" || passwordInput.value==""||userNameInput.value==""||userLastnameInput.value==""|| userNicknameInput.value==""){
+    alert("You have empty values")
+  }
+  else{
+  if(!isEmailValid(userEmailInput.value)){
+    alert("Your email has an invalid format")
+  }
+  else{
+
   const data = {
     userEmail: userEmailInput.value,
     password: passwordInput.value,
@@ -31,7 +48,6 @@ button.addEventListener("click", async (event)  => {
   })
 
   const jsonData = await response.json()
-  console.log("jsonData : ", jsonData)
 
   // No fue exitoso, no estas autorizado
   if(!jsonData.success) {
@@ -40,5 +56,7 @@ button.addEventListener("click", async (event)  => {
     // Navegar
     alert("User Succesfully created")
     window.location.href = "/login.html"
+  }
+}
   }
 })
