@@ -22,119 +22,14 @@
   font-weight: normal;
   src: local("Segoe UI Bold Italic"), url("Segoe UI Bold Italic.woff") format("woff");
 }
-header {
-  background-color: rgb(255, 255, 255);
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  height: 60px;
-  z-index: 9;
-}
-
-nav {
-  margin: 0 auto;
-  height: 55px;
-  background-color: white;
-}
-
-.burguer-button {
-  border: none;
-}
-
-.navbar {
-  max-width: 1250px;
-}
-
-.elementos {
-  margin-left: 305px;
-}
-
-.offcanvas {
-  max-width: 250px !important;
-}
-.offcanvas li {
-  display: block;
-  text-decoration: none;
-  padding: 8px;
-}
-.offcanvas li:hover {
-  background-color: rgb(234, 236, 252) !important;
-}
-.offcanvas a {
-  text-decoration: none;
-  color: #000000;
-  font-family: "Segoe UI";
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-.input-wrapper {
-  position: relative;
-  width: 430px;
-}
-
-.input {
-  box-sizing: border-box;
-  color: #dfdfdf;
-  padding: 15px 15px 15px 5px;
-  width: 100%;
-  border-radius: 8px;
-  height: 38px;
-  border: #8f8d8d solid;
-  border-width: thin;
-}
-
-.input-icon {
-  color: #191919;
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.nav-button {
-  text-align: center;
-}
-
-.right-nav {
-  gap: 10px;
-}
-
-.dropdown-item:hover {
-  background-color: rgb(234, 236, 252) !important;
-}
-
 @media only screen and (max-width: 425px) {
-  .nav-button {
-    display: none;
-  }
   .aside-izq {
     display: none;
   }
 }
-.navbar-brand img {
-  width: 48px;
-  height: 38px;
-}
-
-.p1_icon {
-  width: 30px;
-  height: 30px;
-}
-
-.profile {
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-}
-
 .nav-pills {
   border: none;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 .nav-pills li {
   display: block;
@@ -155,7 +50,7 @@ nav {
 
 .nav-link button {
   color: #000000;
-  background: #F5F5F5;
+  background: #f5f5f5;
 }
 
 .aside-izq {
@@ -182,7 +77,7 @@ nav {
 body {
   width: 100%;
   font-family: "Segoe UI Regular" !important;
-  background-color: #F5F5F5 !important;
+  background-color: #f5f5f5 !important;
 }
 
 .main-wrapper {
@@ -200,7 +95,7 @@ body {
 }
 
 .ind_card {
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   border: none;
   margin-bottom: 10px;
 }
@@ -309,7 +204,7 @@ body {
 }
 .post-tags:hover {
   color: #404040;
-  border: #BDBDBD solid 1px;
+  border: #bdbdbd solid 1px;
   background-color: #f3f3f3;
   border-radius: 5px;
 }
@@ -339,7 +234,7 @@ body {
   border: none;
   border-color: none;
   border-radius: 5px;
-  background-color: #BDBDBD;
+  background-color: #bdbdbd;
 }
 .btn-sm button {
   font-size: 14px;
@@ -366,7 +261,7 @@ body {
 }
 
 .r-p1-card {
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   border: none;
   margin-bottom: 10px;
 }
@@ -375,7 +270,7 @@ body {
   line-height: 1.5;
   font-style: normal;
   letter-spacing: 0.5px;
-  border-bottom: solid 0.5px #F5F5F5;
+  border-bottom: solid 0.5px #f5f5f5;
 }
 
 .r-p1-card-text-heading {
@@ -383,7 +278,7 @@ body {
   line-height: 1.5;
   letter-spacing: 0.5px;
   font-size: 20px;
-  border-bottom: solid 0.5px #F5F5F5;
+  border-bottom: solid 0.5px #f5f5f5;
 }
 
 .r-p1 {
@@ -414,7 +309,7 @@ body {
 }
 
 footer {
-  background-color: #E4E5E4;
+  background-color: #e4e5e4;
   font-family: sans-serif;
   font-size: 1rem;
 }
@@ -423,7 +318,7 @@ footer #leaves {
   border-radius: 10px;
 }
 footer #leaves:hover {
-  background-color: #D4D5E5;
+  background-color: #d4d5e5;
 }
 footer a {
   text-decoration: none;

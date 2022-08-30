@@ -1,35 +1,33 @@
 @font-face {
-    font-family: 'Segoe UI Regular';
+    font-family: "Segoe UI Regular";
     font-style: normal;
     font-weight: normal;
-    src: local('Segoe UI Regular'), url('Segoe UI.woff') format('woff');
-}
-
-
-@font-face {
-    font-family: 'Segoe UI Italic';
+    src: local("Segoe UI Regular"), url("Segoe UI.woff") format("woff");
+  }
+  
+  @font-face {
+    font-family: "Segoe UI Italic";
     font-style: normal;
     font-weight: normal;
-    src: local('Segoe UI Italic'), url('Segoe UI Italic.woff') format('woff');
-}
-
-
-@font-face {
-    font-family: 'Segoe UI Bold';
+    src: local("Segoe UI Italic"), url("Segoe UI Italic.woff") format("woff");
+  }
+  
+  @font-face {
+    font-family: "Segoe UI Bold";
     font-style: normal;
     font-weight: normal;
-    src: local('Segoe UI Bold'), url('Segoe UI Bold.woff') format('woff');
-}
-
-
-@font-face {
-    font-family: 'Segoe UI Bold Italic';
+    src: local("Segoe UI Bold"), url("Segoe UI Bold.woff") format("woff");
+  }
+  
+  @font-face {
+    font-family: "Segoe UI Bold Italic";
     font-style: normal;
     font-weight: normal;
-    src: local('Segoe UI Bold Italic'), url('Segoe UI Bold Italic.woff') format('woff');
-}
-
-header {
+    src: local("Segoe UI Bold Italic"),
+      url("Segoe UI Bold Italic.woff") format("woff");
+  }
+  
+  header {
     background-color: rgb(255, 255, 255);
     position: fixed;
     top: 0px;
@@ -42,45 +40,54 @@ header {
     margin: 0 auto;
     height: 55px;
     background-color: white;
-}
-
-.burguer-button {
+  }
+  .button-login {
+    border: none !important;
+    border-style: none;
+    border-color: transparent;
+    text-decoration: none;
+    color: #404040 !important;
+  }
+  .button-register {
+    border-color: rgb(74, 92, 235) !important;
+    color: rgb(63, 85, 248) !important;
+  }
+  
+  .burguer-button {
     border: none;
-}
-.navbar {
+  }
+  .navbar {
     max-width: 1250px;
-
-}
-.elementos {
-    
+  }
+  .elementos {
     margin-left: 305px;
-
-}
-.offcanvas {
-    max-width: 250px!important;
-        li {
-            display: block;
-            text-decoration: none;
-            padding: 8px;
-        }
-    a{
-        text-decoration: none;
-        color: #000000;
-        font-family: 'Segoe UI';
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;   
-        }
-}
-
-
-.input-wrapper {
+  }
+  .offcanvas {
+    max-width: 250px !important;
+    li {
+      display: block;
+      text-decoration: none;
+      padding: 8px;
+      &:hover {
+        background-color: rgb(234, 236, 252) !important;
+      }
+    }
+    a {
+      text-decoration: none;
+      color: #000000;
+      font-family: "Segoe UI";
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+  
+  .input-wrapper {
     position: relative;
     width: 430px;
-    
-}
-
-.input {
+  }
+  
+  .input {
     box-sizing: border-box;
     color: #dfdfdf;
     padding: 15px 15px 15px 5px;
@@ -89,9 +96,9 @@ header {
     height: 38px;
     border: #8f8d8d solid;
     border-width: thin;
-}
-
-.input-icon {
+  }
+  
+  .input-icon {
     color: #191919;
     position: absolute;
     width: 20px;
@@ -99,37 +106,50 @@ header {
     right: 12px;
     top: 50%;
     transform: translateY(-50%);
-}
-
-
-.nav-button {
+  }
+  
+  .nav-button {
     text-align: center;
-}
-.right-nav {
+  }
+  .right-nav {
     gap: 10px;
-}
-.dropdown-item:hover {
-    background-color: rgb(234,236,252)!important;
-
-}
-
-@media only screen and (max-width:425px){
-    .nav-button{
-        display: none;
+  }
+  .dropdown-item:hover {
+    background-color: rgb(234, 236, 252) !important;
+  }
+  
+  @media only screen and (max-width: 425px) {
+    .nav-button {
+      display: none;
     }
+    .button-login {
+        display: none!important;
+    }
+    .button-register{
+        display: none!important;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    .button-login {
+        display: none!important;
+    }
+    .button-register{
+        display: none!important;
+    }
+ 
 }
-.navbar-brand {
+  .navbar-brand {
     & img {
-        width: 48px;
-        height: 38px;
+      width: 48px;
+      height: 38px;
     }
-}
-.p1_icon{
+  }
+  .p1_icon {
     width: 30px;
     height: 30px;
-}
-.profile {
+  }
+  .profile {
     border-radius: 50%;
     width: 32px;
     height: 32px;
-}
+  }
