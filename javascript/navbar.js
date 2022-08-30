@@ -303,9 +303,11 @@ const insertNav = async (validate) => {
     // 'Sign Out'
     let signOut = document.querySelector("#signOut");
     signOut.addEventListener("click", () => {
-        alert("El evento se disparo")
-      window.localStorage.removeItem("token");
-      window.location.reload(true);
+        var result = confirm("¿Quieres cerrar sesión?");
+        if (result) {
+            window.localStorage.removeItem("token");
+            window.location.reload(true);
+        }
     
   });
   }
