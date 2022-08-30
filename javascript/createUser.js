@@ -20,9 +20,17 @@ const URL = "http://localhost:8080/users"
 // OnClick
 button.addEventListener("click", async (event)  => {
   event.preventDefault()
+
+  const emptyDataCheck= [ 
+    userEmailInput.value,
+    passwordInput.value,
+    userNameInput.value,
+    userLastnameInput.value,
+    userNicknameInput.value,
+  ]
  
-  if(userEmailInput.value=="" || passwordInput.value==""||userNameInput.value==""||userLastnameInput.value==""|| userNicknameInput.value==""){
-    alert("You have empty values")
+  if(emptyDataCheck.includes("")){
+    alert("You have empty values") 
   }
   else{
   if(!isEmailValid(userEmailInput.value)){
@@ -30,13 +38,14 @@ button.addEventListener("click", async (event)  => {
   }
   else{
 
-  const data = {
-    userEmail: userEmailInput.value,
-    password: passwordInput.value,
-    userName: userNameInput.value,
-    userLastname: userLastnameInput.value,
-    userNickname: userNicknameInput.value,
-  }
+    const data = {
+      userEmail: userEmailInput.value,
+      password: passwordInput.value,
+      userName: userNameInput.value,
+      userLastname: userLastnameInput.value,
+      userNickname: userNicknameInput.value,
+    }
+  
 
   // Fetch
   const response = await fetch(URL, {
