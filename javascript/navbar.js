@@ -1,19 +1,19 @@
-let urlUserProfile = ""
-const tokenNav = localStorage.getItem("token") || ""
-if(tokenNav){
-    const payload = tokenNav.split(".")[1]
-    const userId = JSON.parse(atob(payload)).id
-    urlUserProfile = `http://localhost:8080/users/${userId}`;
+let urlUserProfile = "";
+const tokenNav = localStorage.getItem("token") || "";
+if (tokenNav) {
+  const payload = tokenNav.split(".")[1];
+  const userId = JSON.parse(atob(payload)).id;
+  urlUserProfile = `http://localhost:8080/users/${userId}`;
 }
 
+let validate = localStorage.getItem("token");
 
-let validate = localStorage.getItem("token")
 
 const insertNav = async (validate) => {
-    if (!validate) {
-      let navbarEvent = document.querySelector("#navbar");
-      let templateNavbar = "";
-      templateNavbar = `
+  if (!validate) {
+    let navbarEvent = document.querySelector("#navbar");
+    let templateNavbar = "";
+    templateNavbar = `
       <div class="container d-flex align-items-center">
       <div class="d-flex align-items-center">
           <button id="offcanvas_btn" class="btn d-inline-block d-md-none navbar-toggler burguer-button"
@@ -43,7 +43,7 @@ const insertNav = async (validate) => {
           <div class="nav-button">
           <button type="button" class="btn btn-outline-primary button-register">Create Account</button>
           </div>
-          <a href="#"><img src="/assets/icons/notifications.png" alt="" srcset="" class="p1_icon"></a>
+          
           <div class="dropdown" id="dropdown-user">
               
           </div>
@@ -129,19 +129,19 @@ const insertNav = async (validate) => {
       </div>
   </div>
       `;
-      navbarEvent.innerHTML = templateNavbar;
-      let loginBtn = document.querySelector(".button-login");
-      loginBtn.addEventListener("click", () => {
-        window.location.href = `/login.html`;
-      });
-      let registerBtn = document.querySelector(".button-register");
-      registerBtn.addEventListener("click", () => {
-        window.location.href = `/createUser.html`;
-      });
-    } else {
-      let navbarEvent = document.querySelector("#navbar");
-      let templateNavbar = "";
-      templateNavbar = `
+    navbarEvent.innerHTML = templateNavbar;
+    let loginBtn = document.querySelector(".button-login");
+    loginBtn.addEventListener("click", () => {
+      window.location.href = `/login.html`;
+    });
+    let registerBtn = document.querySelector(".button-register");
+    registerBtn.addEventListener("click", () => {
+      window.location.href = `/createUser.html`;
+    });
+  } else {
+    let navbarEvent = document.querySelector("#navbar");
+    let templateNavbar = "";
+    templateNavbar = `
       <div class="container d-flex align-items-center">
       <div class="d-flex align-items-center">
           <button id="offcanvas_btn" class="btn d-inline-block d-md-none navbar-toggler burguer-button"
@@ -255,23 +255,23 @@ const insertNav = async (validate) => {
       </div>
   </div>
       `;
-      navbarEvent.innerHTML = templateNavbar;
-      //When clicking on the 'Create Post' button it will display the createPost page.
-      let createPostBtn = document.querySelector(".button-create-post");
-      createPostBtn.addEventListener("click", () => {
-        window.location.href = `/createPost.html`;
-      });
-      const instuserProfileFetch = await fetch(urlUserProfile, {
-        method: "GET",
-      });
-      const jsonDataUser = await instuserProfileFetch.json();
-      usrProfile = jsonDataUser.data;
-  
-      let userProfile = document.querySelector("#dropdown-user");
-      // Load user Profile data
-      const insUserProfile = (user) => {
-        let templateUser = "";
-        templateUser += `
+    navbarEvent.innerHTML = templateNavbar;
+    //When clicking on the 'Create Post' button it will display the createPost page.
+    let createPostBtn = document.querySelector(".button-create-post");
+    createPostBtn.addEventListener("click", () => {
+      window.location.href = `/createPost.html`;
+    });
+    const instuserProfileFetch = await fetch(urlUserProfile, {
+      method: "GET",
+    });
+    const jsonDataUser = await instuserProfileFetch.json();
+    usrProfile = jsonDataUser.data;
+
+    let userProfile = document.querySelector("#dropdown-user");
+    // Load user Profile data
+    const insUserProfile = (user) => {
+      let templateUser = "";
+      templateUser += `
         <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">${user.userName} ${user.userLastname}<br>@${user.userNickname}</a></li>
             <li>
@@ -284,7 +284,7 @@ const insertNav = async (validate) => {
             <li>
                 <hr class="dropdown-divider">
             </li>
-            <li><a class="dropdown-item" href="#">Sign Out</a></li>
+            <li><a class="dropdown-item" id="signOut" href="/index.html">Sign Out</a></li>
         </ul>
         <style>
             .dropdown-toggle::after {
@@ -297,15 +297,23 @@ const insertNav = async (validate) => {
     
                 </div>
                 `;
-        userProfile.innerHTML = templateUser;
-      };
-      insUserProfile(usrProfile);
-    }
-  };
-  
-  insertNav(validate);
+      userProfile.innerHTML = templateUser;
+    };
+    insUserProfile(usrProfile);
+    // 'Sign Out'
+    let signOut = document.querySelector("#signOut");
+    signOut.addEventListener("click", () => {
+        alert("El evento se disparo")
+      window.localStorage.removeItem("token");
+      window.location.reload(true);
+    
+  });
+  }
+};
 
-  // Define and store the input value on the 'Search' box
+insertNav(validate);
+
+// Define and store the input value on the 'Search' box
 let input = document.querySelector(".input-text");
 let findInput = document.querySelector("#find-input");
 let searchText = "";
