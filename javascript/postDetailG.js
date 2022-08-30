@@ -11,7 +11,7 @@ let html = document.querySelector("link[rel='import']").import;
 
 const postsDetailMain = document.querySelector('#post-holder');
 const postsLeftAside = document.querySelector('#left-aside');
-const createPostBtn = document.querySelector('.button-create-post');
+//const createPostBtn = document.querySelector('.button-create-post');
 const mentorContainer = document.querySelector("#mentor-container");
 const AuthorDetailMain = document.querySelector('#user-holder');
 const postOwner= false;
@@ -26,7 +26,7 @@ const postURL = `http://localhost:8080/posts/${postId}`
 
 
 
-createPostBtn.addEventListener('click', () => { window.location.href = `/createPost.html` });
+//createPostBtn.addEventListener('click', () => { window.location.href = `/createPost.html` });
 
 
 

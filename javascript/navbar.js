@@ -149,7 +149,7 @@ const insertNav = async (validate) => {
               aria-controls="offcanvasExample">
               <span class="navbar-toggler-icon nav-span"></span>
           </button>
-          <a class="navbar-brand" href="#" alt="logo"><img src="/assets/icons/logo.png" alt=""></a>
+          <a class="navbar-brand" href="/index.html" alt="logo"><img src="/assets/icons/logo.png" alt=""></a>
   
   
           <div class="collapse navbar-collapse d-md-flex" id="navbarSupportedContent">
