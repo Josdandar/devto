@@ -1,3 +1,5 @@
+// navbar
+let html = document.querySelector("link[rel='import']").import;
 // Selectores DOM
  const token = localStorage.getItem("token") || ""
  let userid="";

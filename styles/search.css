@@ -22,12 +22,6 @@
   font-weight: normal;
   src: local("Segoe UI Bold Italic"), url("Segoe UI Bold Italic.woff") format("woff");
 }
-#navbar {
-  background-color: rgb(255, 255, 255);
-  height: 56px;
-  color: rgb(245, 245, 245);
-}
-
 body {
   background-color: rgb(245, 245, 245);
 }

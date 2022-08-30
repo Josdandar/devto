@@ -1,4 +1,5 @@
-
+// Navbar
+let html = document.querySelector("link[rel='import']").import;
 // Selectores
 const button = document.querySelector("#createUser")
 const userEmailInput = document.querySelector("#userEmail")

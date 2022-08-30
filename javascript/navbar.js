@@ -1,7 +1,7 @@
 let urlUserProfile = ""
-const token = localStorage.getItem("token") || ""
-if(token){
-    const payload = token.split(".")[1]
+const tokenNav = localStorage.getItem("token") || ""
+if(tokenNav){
+    const payload = tokenNav.split(".")[1]
     const userId = JSON.parse(atob(payload)).id
     urlUserProfile = `http://localhost:8080/users/${userId}`;
 }

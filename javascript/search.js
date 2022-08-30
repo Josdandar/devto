@@ -1,6 +1,7 @@
 let url ="http://localhost:8080/posts/";
 
 let params = new URLSearchParams(window.location.search)
+let html = document.querySelector("link[rel='import']").import;
 
 const insertFilteredPost = (posts) => {
     let search = params.get('searchId')
