@@ -210,7 +210,7 @@ addEventListener("DOMContentLoaded", async (e) => {
               </a>
           </div>
           <div class="profile-name">
-              <a href="https://devto-challenge-backend.vercel.app/search.html?searchId=${posts.postAuthor}" class="name-profile fw-bold ms-3">${posts.postAuthor}
+              <a href="https://devto-mu.vercel.app/search.html?searchId=${posts.postAuthor}" class="name-profile fw-bold ms-3">${posts.postAuthor}
               </a>
           </div>
       </div>
