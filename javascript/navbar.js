@@ -3,7 +3,7 @@ const tokenNav = localStorage.getItem("token") || "";
 if (tokenNav) {
   const payload = tokenNav.split(".")[1];
   const userId = JSON.parse(atob(payload)).id;
-  urlUserProfile = `https://devto-challenge-backend.vercel.app/${userId}`;
+  urlUserProfile = `https://devto-challenge-backend.vercel.app/users/${userId}`;
 }
 
 let validate = localStorage.getItem("token");
