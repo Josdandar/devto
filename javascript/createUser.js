@@ -16,7 +16,7 @@ function isEmailValid(email) {
 }
 
 // Constants
-const URL = "http://localhost:8080/users"
+const URL = "https://devto-challenge-backend.vercel.app/users"
 // OnClick
 button.addEventListener("click", async (event)  => {
   event.preventDefault()

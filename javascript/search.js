@@ -1,4 +1,4 @@
-let url ="http://localhost:8080/posts/";
+let url ="https://devto-challenge-backend.vercel.app/posts/";
 
 let params = new URLSearchParams(window.location.search)
 let html = document.querySelector("link[rel='import']").import;

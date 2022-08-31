@@ -6,7 +6,7 @@ const userEmailInput = document.querySelector("#userEmail")
 const passwordInput = document.querySelector("#password")
 
 // Constants
-const URL = "http://localhost:8080/auth"
+const URL = "https://devto-challenge-backend.vercel.app/auth"
 // OnClick
 button.addEventListener("click", async (event)  => {
   event.preventDefault()

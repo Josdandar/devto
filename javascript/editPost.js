@@ -9,8 +9,8 @@ const userid = JSON.parse(atob(payload)).id
 const urlParams = new URLSearchParams(window.location.search);
 const postId = urlParams.get('postId');
 
-const postURL = `http://localhost:8080/posts/${postId}`
-let url = `http://localhost:8080/posts/${postId}`
+const postURL = `https://devto-challenge-backend.vercel.app/posts/${postId}`
+let url = `https://devto-challenge-backend.vercel.app/posts/${postId}`
 
 
 //! GET POST DONE
