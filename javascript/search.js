@@ -9,7 +9,7 @@ const insertFilteredPost = (posts) => {
 let searchBtnHolder = document.querySelector('#btn_left_aside');
 let searchTitleHolder = document.querySelector('#search_title_holder');
 let strToFilter= search
-searchBtnHolder.innerHTML =`<a href="https://devto-challenge-backend.vercel.app/search.html?searchId=${search}" class="btn active" i aria-current="page">Posts</a>
+searchBtnHolder.innerHTML =`<a href="https://devto-mu.vercel.app/search.html?searchId=${search}" class="btn active" i aria-current="page">Posts</a>
 <a href="#" class="btn">Podcasts</a>
 <a href="#" class="btn">People</a>
 <a href="/search.html?searchTag=${search}" class="btn">Tags</a>
@@ -34,7 +34,7 @@ let postsMainCards = document.querySelector('#card_holder');
              let tagstemplate=``;
              posts[post].postTags.forEach(cv => {
                 
-                 tagstemplate+=`<a href="https://devto-challenge-backend.vercel.app/search.html?searchTag=${cv}" class="card-link" style="text-decoration: none;">
+                 tagstemplate+=`<a href="https://devto-mu.vercel.app/search.html?searchTag=${cv}" class="card-link" style="text-decoration: none;">
                  <button type="button" class="btn btn-sm" id=transparent_btn>#${cv}</button>
                  </a>`
                 
@@ -85,7 +85,7 @@ const insertFilteredTag = (posts) => {
 let searchBtnHolder = document.querySelector('#btn_left_aside');
 let searchTitleHolder = document.querySelector('#search_title_holder');
 let strToFilter= search
-searchBtnHolder.innerHTML =`<a href="/search.html?searchId=${search}" class="btn" i aria-current="page">Posts</a>
+searchBtnHolder.innerHTML =`<a href="https://devto-mu.vercel.app/search.html?searchId=${search}" class="btn" i aria-current="page">Posts</a>
 <a href="#" class="btn">Podcasts</a>
 <a href="#" class="btn">People</a>
 <a href="/search.html?searchTag=${search}" class="btn active">Tags</a>
@@ -104,7 +104,7 @@ let postsMainCards = document.querySelector('#card_holder');
             let tagstemplate=``;
             posts[post].postTags.forEach(cv => {
                 
-                tagstemplate+=`<a href="https://devto-challenge-backend.vercel.app/search.html?searchTag=${cv}" class="card-link" style="text-decoration: none;">
+                tagstemplate+=`<a href="https://devto-mu.vercel.app/search.html?searchTag=${cv}" class="card-link" style="text-decoration: none;">
                 <button type="button" class="btn btn-sm" id=transparent_btn>#${cv}</button>
                 </a>`
                 
