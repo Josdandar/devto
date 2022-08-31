@@ -22,7 +22,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const postId = urlParams.get('postId');
 
 
-const postURL = `http://localhost:8080/posts/${postId}`
+const postURL = `https://devto-challenge-backend.vercel.app/posts/${postId}`
 
 
 
@@ -31,7 +31,7 @@ const postURL = `http://localhost:8080/posts/${postId}`
 
 
 const insertUser = async () => {
-    url=`http://localhost:8080/users/${posts.postAuthorId}`
+    url=`https://devto-challenge-backend.vercel.app/users/${posts.postAuthorId}`
     const response = await fetch(url, {
       method: "GET",
       headers: {
@@ -64,7 +64,7 @@ const insertUser = async () => {
      <div class="card my-3  " id="right-aside-bottom-card">
      <div class="card-header py-3 fs-5 fw-bold">
          More From
-         <a class="text-decoration-none fw-bold fs-5" href="http://127.0.0.1:5502/search.html?searchId=${posts.postAuthor}">
+         <a class="text-decoration-none fw-bold fs-5" href="https://devto-challenge-backend.vercel.app/search.html?searchId=${posts.postAuthor}">
          ${user.userNickname}
          </a>
      </div>
@@ -210,7 +210,7 @@ addEventListener("DOMContentLoaded", async (e) => {
               </a>
           </div>
           <div class="profile-name">
-              <a href="http://127.0.0.1:5502/search.html?searchId=${posts.postAuthor}" class="name-profile fw-bold ms-3">${posts.postAuthor}
+              <a href="https://devto-challenge-backend.vercel.app/search.html?searchId=${posts.postAuthor}" class="name-profile fw-bold ms-3">${posts.postAuthor}
               </a>
           </div>
       </div>

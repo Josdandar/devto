@@ -1,5 +1,5 @@
 // Define URLs for fetching the data
-let urlPosts = "http://localhost:8080/posts/";
+let urlPosts = "https://devto-challenge-backend.vercel.app/posts/";
 // let urlUserProfile = "";
 // const token = localStorage.getItem("token") || "";
 // if (token) {
@@ -327,12 +327,19 @@ const insertPost = async (posts) => {
   let template = "";
   let tagsArray = posts[0].postTags.join("\n");
   let tagsArray2 = tagsArray.split("\n");
-  let urlUserPost = `http://localhost:8080/users/${posts[0].postAuthorId}`;
+  let urlUserPost = `https://devto-challenge-backend.vercel.app/users/${posts[0].postAuthorId}`;
   const userInfo = await fetch(urlUserPost, {
     method: "GET",
   });
   const jsonData = await userInfo.json();
   userImg = jsonData.data.userProfilePic;
+//   const urlPostLikes = `https://devto-challenge-backend.vercel.app/likes/${posts[0]._id}`;
+//   const postLikes = await fetch(urlPostLikes, {
+//     method: "GET",
+//   });
+//   const jsonDataLikes = await postLikes.json();
+  
+//   console.log(jsonDataLikes)
   template += `
     <a href="./postDetail.html?postId=${posts[0]._id}" class="post_detail_id">
     <div class="ind_card border-card">
@@ -387,7 +394,7 @@ const insertPost = async (posts) => {
   // Restart the template variable and insert the remaining post cards.
   template = "";
   for (post in posts) {
-    let urlUserPost = `http://localhost:8080/users/${posts[post].postAuthorId}`;
+    let urlUserPost = `https://devto-challenge-backend.vercel.app/users/${posts[post].postAuthorId}`;
     const userInfo = await fetch(`${urlUserPost}`, {
       method: "GET",
     });
